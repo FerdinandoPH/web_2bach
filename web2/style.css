@@ -1,0 +1,29 @@
+.main{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+    font-family: 'Courier New';
+    overflow: auto;
+}
+body
+{
+    background-image: url("fondo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+p{
+    line-height: 1.5;
+}
+#narrar{
+    font-size: 40px;
+    color: #000000;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
