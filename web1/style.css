@@ -1,0 +1,61 @@
+   /*
+   body {
+    background-image: url("img/alkalanaharbg.png");
+    background-repeat: repeat;
+    background-position: top left;
+    background-attachment: fixed;
+}
+*/
+.main{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    height: 100%;
+ 
+}
+body
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("arbol.jpg") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 16pt;
+    font-family: Arial;
+    /*
+    margin-left: 0.5in;
+    margin-right: 0.5in
+    */
+}
+
+
+a:link
+{
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: lightblue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active
+{
+    color: BurlyWood;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:visited
+{
+color: purple;
+background-color: transparent;
+text-decoration: none;
+}
+p{
+    font-style:italic;
+}
+
