@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "navidad";
+    src: url(MerryChristmasStar.ttf);
+}
 body
 {
     background-image: url("fondo.gif");
@@ -13,5 +17,13 @@ body
     margin: 20px;
     height: 100%;
     overflow: auto;
+    text-align: center;
  
+}
+p{
+    font-family: "navidad";
+    font-size: 34px;
+}
+#letraroja{
+    color: red;
 }
