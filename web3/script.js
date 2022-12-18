@@ -25,20 +25,20 @@ function clockUpdate(){
     var currentScroll = main.scrollTop;
     if(currentScroll < lastScroll) {
         sigueletra=false;
-        document.getElementById("vealfinal").style.display="block";
     }
     lastScroll = currentScroll;
     if(sigueletra){
         roj.scrollIntoView({block:'end'});
+        document.getElementById("vealfinal").style.display="none";
     }
     else{
-
+        document.getElementById("vealfinal").style.display="block";
     }
 }
-function VeAlFinal(){
+async function VeAlFinal(){
+    var roj= document.getElementById("letraroja");
     roj.scrollIntoView({block:'end'});
-    sigueletra=true;
-    document.getElementById("vealfinal").style.display="none";
+    setTimeout( function(){sigueletra=true;} , 50);
 }
 function SeparaLetra(){
     var letrac = document.getElementById("letranegra").innerHTML;
