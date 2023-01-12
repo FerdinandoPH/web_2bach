@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.imesp {
+    position: absolute;
+    z-index: 1;
+	opacity: 0;
+}
+div.a {
+    text-align: right;
+}
+#ima1
+{
+    /*position:relative;*/
+	float:left;
+	clear: left;
+    border:1px solid #aaaaaa;
+
+}
+.izq {
+	float: left;
+margin: 5px;
+
+}
+
+meter { 
+	width: 300px;
+	height:20px;}
+
+</style>
+
+</head>
+
+<body>
+<h1>Encuentra las diferencias</h1>
+<div class="izq" >
+
+<img src="cuadropagbueno.png" id="ima1">
+
+<img src="circulo2.png" id="unos"   class="imesp" style="left:45px;top:100px;padding:30px">
+<img src="circulo2.png" id="unosb"   class="imesp" style="left:624px;top:100px;">
+
+<img src="circulo2.png" id="dos"   class="imesp" style="left:342px;top:370px;">
+<img src="circulo2.png" id="dosb"   class="imesp" style="left:705px;top:370px;">
+
+<img src="circulo2.png" id="tres"   class="imesp" style="left:182px;top:284px;">
+<img src="circulo2.png" id="tresb"   class="imesp" style="left:555px;top:284px;">
+
+<img src="circulo2.png" id="cuatro"   class="imesp" style="left:41px;top:203px;">
+<img src="circulo2.png" id="cuatrob"   class="imesp" style="left:409px;top:203px;">
+
+<img src="circulo2.png" id="cinco"   class="imesp" style="left:325px;top:490px;">
+<img src="circulo2.png" id="cincob"   class="imesp" style="left:697px;top:490px;">
+
+<img src="circulo2.png" id="seis"   class="imesp" style="left:200px;top:235px;">
+<img src="circulo2.png" id="seisb"   class="imesp" style="left:570px;top:235px;">
+
+<img src="circulo2.png" id="siete"   class="imesp" style="left:289px;top:142px;">
+<img src="circulo2.png" id="sieteb"   class="imesp" style="left:670px;top:142px;">
+</div>
+
+<div class="izq" style="width:20%;">
+<div>
+<p id="demo" >Aciertos: 0</p>
+ <p> <meter id="metro" 
+ max="100" min="0" value="0"></meter> </p>
+</div>
+
+<div id="historia">
+
+ <p>La Libertad guiando al pueblo es un cuadro pintado por Eugène Delacroix en 1830 y conservado en el Museo del Louvre de París.  </p>
+
+</div>
+
+
+<div align="center">
+<img src="termo0.png" id="termo">
+</div>
+</div>
+<script>
+
+var aciertos=0;
+var sonido = new Audio();
+sonido.src = "SonidoBoton.mp3";
+ids=["unos","dos","tres","cuatro","cinco","seis","siete"]
+posiciones=[["10px","65px"],["55px","170px"],["340px","75px"],["335px","400px"],["330px","657px"],["55px","655px"],["60px","730px"]]
+paddings=["25px 25px","165px 110px","20px 35px","50px 10px","37px 40px","10px 40px","20px 35px"];
+for (var i = 0; i < ids.length; i++) {
+	document.getElementById(ids[i]).style.left=posiciones[i][0];
+	document.getElementById(ids[i]).style.top=posiciones[i][1];
+	document.getElementById(ids[i]).style.padding=paddings[i];
+	document.getElementById(ids[i]).addEventListener("click", encontrada);
+}
+for (var i = 0; i < ids.length; i++) {
+	document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
+	console.log((parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px");
+	document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
+	document.getElementById(ids[i]+"b").style.padding=paddings[i];
+	document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
+}
+function encontrada(event) {
+	aciertos++;
+	sonido.play();
+	
+	var x = event.target.id;
+    document.getElementById(x).style.opacity=0.9;
+
+	document.getElementById(x).removeEventListener("click", encontrada);
+	if (x.substr(x.length - 1) == 'b'){
+		x=x.substr(0, x.length - 1);
+	}
+	else{
+		x=x + 'b';
+	}
+	
+    document.getElementById("demo").innerHTML = "Aciertos " + aciertos;
+	document.getElementById(x).style.opacity=0.9;
+
+	document.getElementById("metro").value = aciertos*15;
+	
+	var i = 'termo' + aciertos + '.png';
+	document.getElementById('termo').src=i;
+	historias=["  El tema de la obra es la insurrección burguesa que tuvo lugar los días 27, 28 y 29 de julio de 1830 (denominadas «las Tres jornadas gloriosas»). ","El lienzo representa una escena del 28 de julio de 1830 en la que el pueblo de París levantó barricadas.","El rey Carlos X de Francia había suprimido el parlamento por decreto y tenía la intención de restringir la libertad de prensa. ","Los disturbios iniciales se convirtieron en un levantamiento que desembocó en una revolución seguida por ciudadanos enojados de todas las clases sociales. No existió un único cabecilla.","Por eso Delacroix representa a la Libertad como guía que conduce al pueblo.","Actualmente se encuentra en el Museo del Louvre, en París","Es de estilo romántico y la técnica utilizada fue óleo sobre lienzo."];
+	document.getElementById("historia").innerHTML = historias[aciertos-1];
+
+}	
+</script>
+
+</body>
+</html>
+
+
+   
