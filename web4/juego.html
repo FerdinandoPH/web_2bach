@@ -85,7 +85,7 @@ meter {
 </div>
 </div>
 <script>
-
+window.onload=NarraInicio;
 var aciertos=0;
 var sonido = new Audio();
 sonido.src = "SonidoBoton.mp3";
@@ -102,6 +102,13 @@ for (var i = 0; i < ids.length; i++) {
 	document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
 	document.getElementById(ids[i]+"b").style.padding=paddings[i];
 	document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
+}
+function NarraInicio(){
+	var textoAVoz = new SpeechSynthesisUtterance();
+	textoAVoz.lang = 'es-ES';
+	textoAVoz.text = "Encuentra las diferencias";
+	textoAVoz.volume=0.8;
+	setTimeOut(function(){speechSynthesis.speak(textoAVoz);},3000);
 }
 /* (var i = 0; i < ids.length; i++) {
 	document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
@@ -135,7 +142,10 @@ function encontrada(event) {
 	document.getElementById('termo').src=i;
 	historias=["  El tema de la obra es la insurrección burguesa que tuvo lugar los días 27, 28 y 29 de julio de 1830 (denominadas «las Tres jornadas gloriosas»). ","El lienzo representa una escena del 28 de julio de 1830 en la que el pueblo de París levantó barricadas.","El rey Carlos X de Francia había suprimido el parlamento por decreto y tenía la intención de restringir la libertad de prensa. ","Los disturbios iniciales se convirtieron en un levantamiento que desembocó en una revolución seguida por ciudadanos enojados de todas las clases sociales. No existió un único cabecilla.","Por eso Delacroix representa a la Libertad como guía que conduce al pueblo.","Actualmente se encuentra en el Museo del Louvre, en París","Es de estilo romántico y la técnica utilizada fue óleo sobre lienzo."];
 	document.getElementById("historia").innerHTML = historias[aciertos-1];
-
+	if(aciertos>=7){
+		clearInterval(intervalo);
+		//window.location.href="hasganado.html";
+	}
 }	
 tiempo=100;
 document.getElementById("tiempo").value = tiempo;
@@ -143,12 +153,13 @@ function TimeUpdate() {
 	tiempo--;
 	document.getElementById("tiempotext").innerHTML = "Tiempo: " + tiempo;
 	document.getElementById("tiempo").value = tiempo;
-	if (tiempo<=95) {
+	if (tiempo<=35) {
 		clearInterval(intervalo);
 		window.location.href="hasperdido.html";
 	}
 }
 var intervalo = setInterval(TimeUpdate, 1000);
+clearInterval(intervalo); //quitar
 </script>
 
 </body>
