@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <style>
+body {
+	background-color: #f1f1f1;
+	
+}
+h1{
+	text-align: center;
+}
 .imesp {
     position: absolute;
     z-index: 1;
@@ -63,6 +70,7 @@ meter {
 
 <div class="izq" style="width:20%;">
 <div >
+	<button id="botonvoz" onclick="CambiaVoz()">Quitar voz</button>
 	<p id="tiempotext" >Tiempo: 100</p>
 	<p> <meter id="tiempo" 
 	max="100" min="0" value="0"></meter> </p>	
@@ -76,18 +84,24 @@ meter {
 <div id="historia">
 
  <p>La Libertad guiando al pueblo es un cuadro pintado por Eugène Delacroix en 1830 y conservado en el Museo del Louvre de París.  </p>
+ 
 
 </div>
 
 
-<div align="center">
+<div content-align="center">
 <img src="termo0.png" id="termo">
 </div>
 </div>
 <script>
-window.onload=NarraInicio;
+speechSynthesis.cancel();
 var aciertos=0;
 var sonido = new Audio();
+var textoAVoz = new SpeechSynthesisUtterance();
+var voz=true;
+textoAVoz.lang = 'es-ES';
+textoAVoz.text = "Encuentra las diferencias";
+textoAVoz.volume=0.8;
 sonido.src = "SonidoBoton.mp3";
 ids=["unos","dos","tres","cuatro","cinco","seis","siete"]
 posiciones=[["10px","65px"],["55px","170px"],["340px","75px"],["335px","400px"],["330px","657px"],["55px","655px"],["60px","730px"]]
@@ -103,13 +117,7 @@ for (var i = 0; i < ids.length; i++) {
 	document.getElementById(ids[i]+"b").style.padding=paddings[i];
 	document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
 }
-function NarraInicio(){
-	var textoAVoz = new SpeechSynthesisUtterance();
-	textoAVoz.lang = 'es-ES';
-	textoAVoz.text = "Encuentra las diferencias";
-	textoAVoz.volume=0.8;
-	setTimeOut(function(){speechSynthesis.speak(textoAVoz);},3000);
-}
+
 /* (var i = 0; i < ids.length; i++) {
 	document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
 	console.log((parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px");
@@ -140,10 +148,15 @@ function encontrada(event) {
 	
 	var i = 'termo' + aciertos + '.png';
 	document.getElementById('termo').src=i;
-	historias=["  El tema de la obra es la insurrección burguesa que tuvo lugar los días 27, 28 y 29 de julio de 1830 (denominadas «las Tres jornadas gloriosas»). ","El lienzo representa una escena del 28 de julio de 1830 en la que el pueblo de París levantó barricadas.","El rey Carlos X de Francia había suprimido el parlamento por decreto y tenía la intención de restringir la libertad de prensa. ","Los disturbios iniciales se convirtieron en un levantamiento que desembocó en una revolución seguida por ciudadanos enojados de todas las clases sociales. No existió un único cabecilla.","Por eso Delacroix representa a la Libertad como guía que conduce al pueblo.","Actualmente se encuentra en el Museo del Louvre, en París","Es de estilo romántico y la técnica utilizada fue óleo sobre lienzo."];
+	historias=["  El tema de la obra es la insurrección burguesa que tuvo lugar los días 27, 28 y 29 de julio de 1830 (denominadas «las Tres jornadas gloriosas»). ","","","","","","HAS GANADO :)"];
 	document.getElementById("historia").innerHTML = historias[aciertos-1];
+	textoAVoz.text = historias[aciertos-1];
+	speechSynthesis.cancel();
+	if(voz)
+		setTimeout(function(){speechSynthesis.speak(textoAVoz);},1000)
 	if(aciertos>=7){
 		clearInterval(intervalo);
+		speechSynthesis.cancel();
 		//window.location.href="hasganado.html";
 	}
 }	
@@ -157,6 +170,16 @@ function TimeUpdate() {
 		clearInterval(intervalo);
 		window.location.href="hasperdido.html";
 	}
+}
+function CambiaVoz(){
+	voz=!voz;
+	var textoboton=["Quitar voz","Poner voz"];
+	if(!voz){
+		speechSynthesis.cancel();
+		document.getElementById("botonvoz").innerHTML = textoboton[1];
+	}
+	else
+		document.getElementById("botonvoz").innerHTML = textoboton[0];
 }
 var intervalo = setInterval(TimeUpdate, 1000);
 clearInterval(intervalo); //quitar
