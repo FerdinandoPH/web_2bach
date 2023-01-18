@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="favicon.png" type="image/gif" >
-        <title>Poner título</title>
+        <title>Has perdido</title>
         <viewport content="width=device-width, initial-scale=1.0">
     </head>
     <style>
@@ -11,6 +11,8 @@
         }
     </style>
     <script>
+        var sonido=new Audio("gameOver.mp3");
+        sonido.play();
         speechSynthesis.cancel();
     </script>
     <body>

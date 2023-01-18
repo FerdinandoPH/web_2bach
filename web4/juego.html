@@ -1,189 +1,251 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<style>
-body {
-	background-color: #f1f1f1;
-	
-}
-h1{
-	text-align: center;
-}
-.imesp {
-    position: absolute;
-    z-index: 1;
-	opacity: 0;
-}
-div.a {
-    text-align: right;
-}
-#ima1
-{
-    /*position:relative;*/
-	float:left;
-	clear: left;
-    border:1px solid #aaaaaa;
+	<meta charset="UTF-8">
+	<link rel="icon" href="favicon.png" type="image/gif" >
+	<title>Juego de las 7 diferencias</title>
+	<viewport content="width=device-width, initial-scale=1.0">
+	<style>
+	body {
+		background-color: #f1f1f1;
+		
+	}
+	h1{
+		text-align: center;
+	}
+	.imesp {
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+	}
+	div.a {
+		text-align: right;
+	}
+	#ima1
+	{
+		/*position:relative;*/
+		float:left;
+		clear: left;
+		border:1px solid #aaaaaa;
 
-}
-.izq {
-	float: left;
-margin: 5px;
+	}
+	.izq {
+		float: left;
+	margin: 5px;
 
-}
+	}
 
-meter { 
-	width: 300px;
-	height:20px;}
+	meter { 
+		width: 300px;
+		height:20px;}
 
-</style>
+	</style>
 
 </head>
 
 <body>
-<h1>Encuentra las diferencias</h1>
-<div class="izq" >
+	<h1>Encuentra las diferencias</h1>
+	<div class="izq" >
 
-<img src="cuadropagbueno.png" id="ima1">
+	<img src="cuadropagbueno.png" id="ima1">
 
-<img src="circulo2.png" id="unos"   class="imesp" style="left:45px;top:100px;padding:30px">
-<img src="circulo2.png" id="unosb"   class="imesp" style="left:624px;top:100px;">
+	<img src="circulo2.png" id="unos"   class="imesp" style="left:45px;top:100px;padding:30px">
+	<img src="circulo2.png" id="unosb"   class="imesp" style="left:624px;top:100px;">
 
-<img src="circulo2.png" id="dos"   class="imesp" style="left:342px;top:370px;">
-<img src="circulo2.png" id="dosb"   class="imesp" style="left:705px;top:370px;">
+	<img src="circulo2.png" id="dos"   class="imesp" style="left:342px;top:370px;">
+	<img src="circulo2.png" id="dosb"   class="imesp" style="left:705px;top:370px;">
 
-<img src="circulo2.png" id="tres"   class="imesp" style="left:182px;top:284px;">
-<img src="circulo2.png" id="tresb"   class="imesp" style="left:555px;top:284px;">
+	<img src="circulo2.png" id="tres"   class="imesp" style="left:182px;top:284px;">
+	<img src="circulo2.png" id="tresb"   class="imesp" style="left:555px;top:284px;">
 
-<img src="circulo2.png" id="cuatro"   class="imesp" style="left:41px;top:203px;">
-<img src="circulo2.png" id="cuatrob"   class="imesp" style="left:409px;top:203px;">
+	<img src="circulo2.png" id="cuatro"   class="imesp" style="left:41px;top:203px;">
+	<img src="circulo2.png" id="cuatrob"   class="imesp" style="left:409px;top:203px;">
 
-<img src="circulo2.png" id="cinco"   class="imesp" style="left:325px;top:490px;">
-<img src="circulo2.png" id="cincob"   class="imesp" style="left:697px;top:490px;">
+	<img src="circulo2.png" id="cinco"   class="imesp" style="left:325px;top:490px;">
+	<img src="circulo2.png" id="cincob"   class="imesp" style="left:697px;top:490px;">
 
-<img src="circulo2.png" id="seis"   class="imesp" style="left:200px;top:235px;">
-<img src="circulo2.png" id="seisb"   class="imesp" style="left:570px;top:235px;">
+	<img src="circulo2.png" id="seis"   class="imesp" style="left:200px;top:235px;">
+	<img src="circulo2.png" id="seisb"   class="imesp" style="left:570px;top:235px;">
 
-<img src="circulo2.png" id="siete"   class="imesp" style="left:289px;top:142px;">
-<img src="circulo2.png" id="sieteb"   class="imesp" style="left:670px;top:142px;">
-</div>
+	<img src="circulo2.png" id="siete"   class="imesp" style="left:289px;top:142px;">
+	<img src="circulo2.png" id="sieteb"   class="imesp" style="left:670px;top:142px;">
 
-<div class="izq" style="width:20%;">
-<div >
-	<button id="botonvoz" onclick="CambiaVoz()">Quitar voz</button>
-	<p id="tiempotext" >Tiempo: 100</p>
-	<p> <meter id="tiempo" 
-	max="100" min="0" value="0"></meter> </p>	
-</div>
-<div>
-<p id="demo" >Aciertos: 0</p>
- <p> <meter id="metro" 
- max="100" min="0" value="0"></meter> </p>
-</div>
+	<img src="reloj.png" id="reloj" class="imesp" onmouseover="SubeTiempo()" style="opacity:0; z-index: 2;">
+	</div>
 
-<div id="historia">
+	<div class="izq" style="width:20%;">
+	<div >
+		<button id="botonvoz" onclick="CambiaVoz()">Quitar voz</button>
+		<p id="tiempotext" >Tiempo: 100</p>
+		<p> <meter id="tiempo" 
+		max="100" min="0" value="0"></meter> </p>	
+	</div>
+	<div>
+	<p id="demo" >Aciertos: 0</p>
+	<p> <meter id="metro" 
+	max="100" min="0" value="0"></meter> </p>
+	</div>
 
- <p>La Libertad guiando al pueblo es un cuadro pintado por Eugène Delacroix en 1830 y conservado en el Museo del Louvre de París.  </p>
- 
+	<div id="historia">
 
-</div>
-
-
-<div content-align="center">
-<img src="termo0.png" id="termo">
-</div>
-</div>
-<script>
-speechSynthesis.cancel();
-var aciertos=0;
-var sonido = new Audio();
-var textoAVoz = new SpeechSynthesisUtterance();
-var voz=true;
-textoAVoz.lang = 'es-ES';
-textoAVoz.text = "Encuentra las diferencias";
-textoAVoz.volume=0.8;
-sonido.src = "SonidoBoton.mp3";
-ids=["unos","dos","tres","cuatro","cinco","seis","siete"]
-posiciones=[["10px","65px"],["55px","170px"],["340px","75px"],["335px","400px"],["330px","657px"],["55px","655px"],["60px","730px"]]
-paddings=["25px 25px","165px 110px","20px 35px","50px 10px","37px 40px","10px 40px","20px 35px"];
-for (var i = 0; i < ids.length; i++) {
-	document.getElementById(ids[i]).style.left=posiciones[i][0];
-	document.getElementById(ids[i]).style.top=posiciones[i][1];
-	document.getElementById(ids[i]).style.padding=paddings[i];
-	document.getElementById(ids[i]).addEventListener("click", encontrada);
-	document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
-	console.log((parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px");
-	document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
-	document.getElementById(ids[i]+"b").style.padding=paddings[i];
-	document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
-}
-
-/* (var i = 0; i < ids.length; i++) {
-	document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
-	console.log((parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px");
-	document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
-	document.getElementById(ids[i]+"b").style.padding=paddings[i];
-	document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
-}
-*/
-function encontrada(event) {
-	aciertos++;
-	sonido.play();
+	<p>Bienvenido al juego :) </p>
 	
-	var x = event.target.id;
-    document.getElementById(x).style.opacity=0.9;
 
-	document.getElementById(x).removeEventListener("click", encontrada);
-	if (x.substr(x.length - 1) == 'b'){
-		x=x.substr(0, x.length - 1);
-	}
-	else{
-		x=x + 'b';
-	}
-	
-    document.getElementById("demo").innerHTML = "Aciertos " + aciertos;
-	document.getElementById(x).style.opacity=0.9;
+	</div>
 
-	document.getElementById("metro").value = aciertos*15;
-	
-	var i = 'termo' + aciertos + '.png';
-	document.getElementById('termo').src=i;
-	historias=["  El tema de la obra es la insurrección burguesa que tuvo lugar los días 27, 28 y 29 de julio de 1830 (denominadas «las Tres jornadas gloriosas»). ","","","","","","HAS GANADO :)"];
-	document.getElementById("historia").innerHTML = historias[aciertos-1];
-	textoAVoz.text = historias[aciertos-1];
-	speechSynthesis.cancel();
-	if(voz)
-		setTimeout(function(){speechSynthesis.speak(textoAVoz);},1000)
-	if(aciertos>=7){
-		clearInterval(intervalo);
+
+	<div content-align="center">
+	<img src="termo0.png" id="termo">
+	</div>
+	</div>
+	<script>
 		speechSynthesis.cancel();
-		//window.location.href="hasganado.html";
-	}
-}	
-tiempo=100;
-document.getElementById("tiempo").value = tiempo;
-function TimeUpdate() {
-	tiempo--;
-	document.getElementById("tiempotext").innerHTML = "Tiempo: " + tiempo;
-	document.getElementById("tiempo").value = tiempo;
-	if (tiempo<=35) {
-		clearInterval(intervalo);
-		window.location.href="hasperdido.html";
-	}
-}
-function CambiaVoz(){
-	voz=!voz;
-	var textoboton=["Quitar voz","Poner voz"];
-	if(!voz){
-		speechSynthesis.cancel();
-		document.getElementById("botonvoz").innerHTML = textoboton[1];
-	}
-	else
-		document.getElementById("botonvoz").innerHTML = textoboton[0];
-}
-var intervalo = setInterval(TimeUpdate, 1000);
-clearInterval(intervalo); //quitar
-</script>
+		var aciertos=0;
+		var sonido = new Audio();
+		var sonido10s = new Audio("10s.mp3");
+		var textoAVoz = new SpeechSynthesisUtterance();
+		var voz=true;
+		var relojPasado=true;
+		var reloj=document.getElementById("reloj");
+		textoAVoz.lang = 'es-ES';
+		textoAVoz.text = "Encuentra las diferencias";
+		textoAVoz.volume=0.8;
+		sonido.src = "SonidoBoton.mp3";
+		ids=["unos","dos","tres","cuatro","cinco","seis","siete"]
+		posiciones=[["10px","65px"],["55px","170px"],["340px","75px"],["335px","400px"],["330px","657px"],["55px","655px"],["60px","730px"]]
+		paddings=["25px 25px","165px 110px","20px 35px","50px 10px","37px 40px","10px 40px","20px 35px"];
+		for (var i = 0; i < ids.length; i++) {
+			document.getElementById(ids[i]).style.left=posiciones[i][0];
+			document.getElementById(ids[i]).style.top=posiciones[i][1];
+			document.getElementById(ids[i]).style.padding=paddings[i];
+			document.getElementById(ids[i]).addEventListener("click", encontrada);
+			document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
+			document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
+			document.getElementById(ids[i]+"b").style.padding=paddings[i];
+			document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
+		}
+		reloj.style.left=((Math.random()%900)*1000).toString()+"px";
+		reloj.style.top=(30+(Math.random()%730)*1000).toString()+"px";
+		/* (var i = 0; i < ids.length; i++) {
+			document.getElementById(ids[i]+"b").style.left=(parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px";
+			console.log((parseInt(posiciones[i][0].replace("px",""))+510).toString()+"px");
+			document.getElementById(ids[i]+"b").style.top=posiciones[i][1];
+			document.getElementById(ids[i]+"b").style.padding=paddings[i];
+			document.getElementById(ids[i]+"b").addEventListener("click", encontrada);
+		}
+		*/
+		function encontrada(event) {
+			aciertos++;
+			sonido.pause();
+			sonido.currentTime = 0;
+			sonido.play();
+			
+			var x = event.target.id;
+			document.getElementById(x).style.opacity=0.9;
+
+			document.getElementById(x).removeEventListener("click", encontrada);
+			if (x.substr(x.length - 1) == 'b'){
+				x=x.substr(0, x.length - 1);
+			}
+			else{
+				x=x + 'b';
+			}
+			
+			document.getElementById("demo").innerHTML = "Aciertos: " + aciertos;
+			document.getElementById(x).style.opacity=0.9;
+
+			document.getElementById("metro").value = aciertos*15;
+			
+			var i = 'termo' + aciertos + '.png';
+			document.getElementById('termo').src=i;
+			historias=["El nombre de la obra es: Composición en rojo, amarillo y azul ","El autor de esta obra es el famoso pintor neerlandés Piet Mondrian","Se trata de una pintura neoplasticista, definida por sus colores primarios y patrones rectilíneos y básicos","El cuadro presenta un interesante contraste entre la rectitud de sus líneas y colores, y la irregularidad de los rectángulos formados por estas, mostrando dos caras de la misma moneda. Este contraste entre simpleza y complejidad llevaron a este cuadro al estrellato de la pintura abstracta.","A pesar de la simpleza del cuadro a primera vista, lo he escogido porque dicha simpleza invita a una reflexión introspectiva, un viaje astral por la corriente del pensamiento","Naa, lo he cogido porque era más fácil ponerle diferencias jajajajaja","HAS GANADO :)"];
+			document.getElementById("historia").innerHTML = historias[aciertos-1];
+			textoAVoz.text = historias[aciertos-1];
+			speechSynthesis.cancel();
+			if(voz)
+				setTimeout(function(){speechSynthesis.speak(textoAVoz);},1000)
+			if(aciertos>=7){
+				clearInterval(intervalo);
+				speechSynthesis.cancel();
+				window.location.href="hasganado.html";
+			}
+		}	
+		tiempo=100;
+		document.getElementById("tiempo").value = tiempo;
+		function TimeUpdate() {
+			tiempo--;
+			document.getElementById("tiempotext").innerHTML = "Tiempo: " + tiempo;
+			document.getElementById("tiempo").value = tiempo;
+			if (tiempo<=0) {
+				clearInterval(intervalo);
+				window.location.href="hasperdido.html";
+			}
+			else if (tiempo==20){
+				estadostransparencia=[];
+				for (var i = 0; i < ids.length; i++) {
+					estadostransparencia.push(document.getElementById(ids[i]).style.opacity);
+					document.getElementById(ids[i]).style.opacity=0.9;
+					document.getElementById(ids[i]+"b").style.opacity=0.9;
+				}
+				setTimeout(function(){
+					for (var i = 0; i < ids.length; i++) {
+						document.getElementById(ids[i]).style.opacity=estadostransparencia[i];
+						document.getElementById(ids[i]+"b").style.opacity=estadostransparencia[i];
+					}
+				},100);
+			}
+			else if (tiempo==11){
+				SeTeAcabaElTiempo();
+			}
+		}
+		function SeTeAcabaElTiempo(inicia=true){
+			if(inicia){
+				setTimeout(function(){document.getElementById("tiempotext").style.color="red";},1000);
+				sonido10s.play();
+			}
+			else{
+				sonido10s.pause();
+				sonido10s.currentTime = 0;
+				document.getElementById("tiempotext").style.color="black";
+			}
+		}
+		function SubeTiempo(){
+			if(relojPasado){
+				relojPasado=false;
+				SeTeAcabaElTiempo(false);
+				reloj.style.opacity=1;
+				reloj.style.width="100px";
+				reloj.style.height="98px";
+				tiempo+=10;
+				if(tiempo>100)
+					tiempo=100;
+				document.getElementById("tiempotext").innerHTML = "Tiempo: " + tiempo;
+				document.getElementById("tiempotext").style.fontSize="40px";
+				document.getElementById("tiempo").value = tiempo;
+				document.getElementById("tiempotext").style.color="green";
+				sonidomastiempo=new Audio("mastiempo.wav");
+				try{
+					sonidomastiempo.play();
+				}
+				catch(err){
+					console.log("No se ha podido reproducir el sonido por las reglas de Chrome");
+				}
+				setTimeout(function(){document.getElementById("tiempotext").style.color="black";document.getElementById("tiempotext").style.fontSize="16px";reloj.style.opacity=0;reloj.style.zIndex=0;},1000);
+			}
+		}
+		function CambiaVoz(){
+			voz=!voz;
+			var textoboton=["Quitar voz","Poner voz"];
+			if(!voz){
+				speechSynthesis.cancel();
+				document.getElementById("botonvoz").innerHTML = textoboton[1];
+			}
+			else
+				document.getElementById("botonvoz").innerHTML = textoboton[0];
+		}
+		var intervalo = setInterval(TimeUpdate, 1000);
+		//clearInterval(intervalo); //quitar
+	</script>
 
 </body>
 </html>
