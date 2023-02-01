@@ -12,7 +12,7 @@ body
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
-    height: 100%;
     overflow: auto;
+    display: inline-block;
  
 }

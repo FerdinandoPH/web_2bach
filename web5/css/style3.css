@@ -1,10 +1,6 @@
-:root{
-    --flecha-x:20%;
-    --flecha-y:50%;
-}
 body
 {
-    background-image: url("../img/pasillo2c.png");
+    background-image: url("../img/fail.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -21,17 +17,9 @@ body
    margin-top:1.5%;
  
 }
-.flechas{
+#rick{
     position: absolute;
-    transform: scale(1.25);
-    padding:30px;
-    cursor:pointer;
-}
-#flechaizq{
-    left:var(--flecha-x);
-    top: var(--flecha-y);
-}
-#flechader{
-    right:var(--flecha-x);
-    top: var(--flecha-y);
+    top: 15%;
+    left: 38%;
+    transform: scale(0.75);
 }
