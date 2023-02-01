@@ -18,8 +18,8 @@ body
  
 }
 #rick{
-    position: absolute;
-    top: 15%;
-    left: 38%;
+    /*position: absolute;*/
+    margin-top:6%;
+    /*margin-left: 13%;*/
     transform: scale(0.75);
 }
