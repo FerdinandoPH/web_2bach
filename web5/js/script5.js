@@ -47,7 +47,7 @@ function Clickado(id){
         document.getElementById(seleccionado).style.border="none";
         seleccionado=null;
         if (Comprueba()){
-            alert("¡Has ganado!");
+            window.location.href="oraculo.html";
         }
     }
 }
@@ -83,6 +83,7 @@ function Inicio(){
     for (var i=0;i<9;i++){
         piezas[i]=new Pieza(i+1,posiciones[i]);
         document.getElementById("i"+(i+1)).addEventListener("click",function(){Clickado(this.id)});
+        document.getElementById("i"+(i+1)).setAttribute("alt","i"+(i+1));
     }
     ColocaPiezas();
     Mostrarpiezas(false);

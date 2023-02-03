@@ -1,5 +1,6 @@
 body
 {
+    background-image: url("../img/puzzlefondo.png");
     background-color: black;
     background-repeat: no-repeat;
     background-attachment: fixed;
