@@ -66,7 +66,7 @@ function timeUpdate(){
     var medidor=document.getElementById("tiempomet");
     medidor.value=tiempo;
     var texto=document.getElementById("tiempotext");
-    texto.innerHTML="Tiempo restante: "+tiempo;
+    texto.innerHTML="El techo te matará en: "+tiempo;
     if(tiempo<=0){
         window.location.href="gameover.html";
     }
