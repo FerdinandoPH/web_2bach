@@ -1,7 +1,5 @@
 from revChatGPT import Official
 import websockets,asyncio,base64,openai
-#chat=Official.Chatbot(api_key=str(base64.b64decode(b'c2stclo3TVU3c20zcW5QYzZvU0k3V0FUM0JsYmtGSm52OEo4S1gwSjlMSWh0bjR3Q0pF')))
-#openai.api_key="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"
 chat=Official.Chatbot(api_key="")
 async def mandaMensage(websocket, path):
     print("ALGUIEN ")
