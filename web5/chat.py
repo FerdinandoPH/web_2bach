@@ -1,19 +1,5 @@
-try:
-    from revChatGPT import Official
-    import websockets,asyncio,openai
-except Exception as e:
-    import os,sys
-    print("Error: ",e)
-    '''
-    print("Faltan paquetes")
-    os.system("pip3 install websockets")
-    os.system("pip3 install asyncio")
-    os.system("pip3 install openai")
-    os.system("pip3 install revChatGPT")
-    print("instalados")
-    '''
-    sys.exit()
-    
+from revChatGPT import Official
+import websockets,asyncio,base64,openai
 chat=Official.Chatbot(api_key="")
 async def mandaMensage(websocket, path):
     print("ALGUIEN ")
@@ -21,7 +7,7 @@ async def mandaMensage(websocket, path):
     listapalabras = palabras.split("YYY")
     print(listapalabras)
     print("Creando historia")
-    historia=chat.ask("Crea una breve historia que incluya los siguientes elementos: "+listapalabras[0]+", "+listapalabras[1]+", y "+listapalabras[2],temperature=0.6)["choices"][0]["text"]
+    historia=chat.ask("Crea una breve historia que incluya los siguientes elementos: "+listapalabras[0]+listapalabras[1]+listapalabras[2])["choices"][0]["text"]
     print(historia)
     await websocket.send("H"+historia)
     '''
