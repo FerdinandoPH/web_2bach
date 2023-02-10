@@ -7,7 +7,7 @@ async def mandaMensage(websocket, path):
     listapalabras = palabras.split("YYY")
     print(listapalabras)
     print("Creando historia")
-    historia=chat.ask("Crea una breve historia que incluya los siguientes elementos: "+listapalabras[0]+listapalabras[1]+listapalabras[2])["choices"][0]["text"]
+    historia=chat.ask("Crea una breve historia en la que el protagonista, llamado ")["choices"][0]["text"]
     print(historia)
     await websocket.send("H"+historia)
     '''
@@ -17,7 +17,7 @@ async def mandaMensage(websocket, path):
     n=1,
     size="512x512"
     )
-    image_url = response['data'][0]['url']
+    image_url = response['data'][0]['url'] #type: ignore
     print(image_url)
     await websocket.send("I"+image_url)
     '''
