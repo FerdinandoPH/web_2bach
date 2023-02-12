@@ -16,3 +16,7 @@ body
     display: inline-block;
  
 }
+#expl1::first-letter{
+    float: auto;
+    font-size: 300%;
+}

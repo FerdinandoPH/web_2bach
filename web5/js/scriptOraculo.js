@@ -16,13 +16,13 @@ function AbreFormulario(){
 function PreparaEnvio(){
     palabras=""
     todas=true;
-    for (i=1;i<=6;i++){
+    for (i=1;i<=5;i++){
         if (document.getElementById("pregunta"+i).value==""){
             todas=false;
         }
         else{
             palabras+=document.getElementById("pregunta"+i).value;
-            if (i<6){
+            if (i<5){
                 palabras+="YYY";
             }
         }
@@ -46,8 +46,15 @@ function Generar(mensaje){
         document.body.style.backgroundImage="url('img/procesando.gif')";
     }
     socket.onmessage=function(event){
+        document.getElementById("botonIntro").onclick=function(){window.location.href="index.html"};
+        document.getElementById("botonIntro").innerHTML="Volver al inicio";
         document.body.style.backgroundImage="url('img/oraculoTemplo.jpg')";
-        if (event.data[0]=="H"){
+        if (event.data[0]=="E"){
+            document.getElementById("textoIntro").innerHTML="Vaya, parece que ha habido una perturbación en mi visión. ¿Podrías volver a intentarlo?";
+            document.getElementById("botonIntro").onclick=function(){AbreFormulario()};
+            document.getElementById("botonIntro").innerHTML="Intentarlo de nuevo";
+        }
+        else if (event.data[0]=="H"){
             console.log(event.data.substring(1));
             document.getElementById("resultado").innerHTML=event.data.substring(1);
         }
