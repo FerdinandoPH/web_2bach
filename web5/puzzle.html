@@ -2,13 +2,14 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="favicon.png" type="image/gif" >
-        <title>Poner título</title>
+        <title>Poner titulo</title>
         <link rel="stylesheet" href="css/style5.css">
+        <link rel="stylesheet" href="css/font.css">
     </head>
     <script type="text/javascript" src="js/script5.js"></script>
     <body>
         <div  id="intro" class="main">
-            <p>Al acercarte a la puerta, ves que está compuesta por lo que parece un puzle. ¡Si lo resuelves, puede que se abra la puerta!<br/>Pero no tienes mucho tiempo, el techo de pinchos está bajando...</p>
+            <p id="texto">Al acercarte a la puerta, ves que esta compuesta por lo que parece un puzle. ¡Si lo resuelves, puede que se abra la puerta!<br/>Pero no tienes mucho tiempo, el techo de pinchos esta bajando...</p>
             <button onclick="ComenzarJuego()" style="cursor:pointer;">Comenzar</button>
         </div>
         <img id="i1" src="img/puzzle/p1.png"class="puzzle">
@@ -21,7 +22,7 @@
         <img id="i8" src="img/puzzle/p8.png"class="puzzle">
         <img id="i9" src="img/puzzle/p9.png"class="puzzle">
         <div id="ui" class="main" style="opacity:0;">
-            <p id="tiempotext">El techo te matará en: 15</p>
+            <p id="tiempotext">El techo te matara en: 15</p>
             <p> <meter id="tiempomet" 
                 max="15" min="0" value="15" style="width:100px;"></meter> </p>	
         </div>        

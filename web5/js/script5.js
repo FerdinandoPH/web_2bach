@@ -3,10 +3,48 @@ var posiciones=[...posicionesbien];
 var piezas=[];
 var seleccionado=null;
 var tiempo=15;
+var sonido=true;
+var tts=false;
+textoavoz=new SpeechSynthesisUtterance();
+speechSynthesis.cancel();
 class Pieza{
     constructor(id,pos){
         this.id = id;
         this.pos=pos;
+    }
+}
+function Hablar(){
+    if (tts==true){
+        textoavoz.text=document.getElementById("texto").innerHTML;
+        textoavoz.lang="es-ES";
+        speechSynthesis.speak(textoavoz);
+    }
+}
+function CogeArgs(){
+    //Coge dos argumentos: letra y sonido
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var letra = url.searchParams.get("letra");
+    var sonidoimport = url.searchParams.get("sonido");
+    var ttsimport = url.searchParams.get("tts");
+    if (letra!=null){
+        document.documentElement.style.setProperty('--letrasize', letra);
+    }
+    if (sonidoimport!=null){
+        if (sonidoimport=="true"){
+            sonido=true;
+        }
+        else{
+            sonido=false;
+        }
+    }
+    if(ttsimport!=null){
+        if (ttsimport=="true"){
+            tts=true;
+        }
+        else{
+            tts=false;
+        }
     }
 }
 function sumapx(pix,num){
@@ -47,7 +85,7 @@ function Clickado(id){
         document.getElementById(seleccionado).style.border="none";
         seleccionado=null;
         if (Comprueba()){
-            window.location.href="oraculo.html";
+            window.location.href="oraculo.html?letra="+getComputedStyle(document.documentElement).getPropertyValue('--letrasize')+"&sonido="+sonido+"&tts="+tts;
         }
     }
 }
@@ -66,25 +104,28 @@ function timeUpdate(){
     var medidor=document.getElementById("tiempomet");
     medidor.value=tiempo;
     var texto=document.getElementById("tiempotext");
-    texto.innerHTML="El techo te matará en: "+tiempo;
+    texto.innerHTML="El techo te matara en: "+tiempo;
     if(tiempo<=0){
-        window.location.href="gameover.html";
+        window.location.href="gameover.html?letra="+getComputedStyle(document.documentElement).getPropertyValue('--letrasize')+"&sonido="+sonido+"&tts="+tts;
     }
 }
 function ComenzarJuego(){
+    speechSynthesis.cancel();
     Mostrarpiezas(true);
     document.getElementById("intro").style.display="none";
     document.getElementById("ui").style.opacity="1";
     var intervalo=setInterval(timeUpdate,1000);
 }
 function Inicio(){
-    //Hay 9 piezas, cada una con un id y una posición
+    //Hay 9 piezas, cada una con un id y una posicion
+    CogeArgs();
     posiciones.sort(function() {return Math.random() - 0.5});
     for (var i=0;i<9;i++){
         piezas[i]=new Pieza(i+1,posiciones[i]);
         document.getElementById("i"+(i+1)).addEventListener("click",function(){Clickado(this.id)});
         document.getElementById("i"+(i+1)).setAttribute("alt","i"+(i+1));
     }
+    Hablar();
     ColocaPiezas();
     Mostrarpiezas(false);
 }

@@ -1,0 +1,15 @@
+:root{
+    --letrasize:18px;
+}
+@font-face {
+    font-family: "Egipto";
+    src: url("../misc/egipto.otf");
+}
+button{
+    font-family: "Egipto";
+    font-size: var(--letrasize);
+}
+body{
+    font-family: "Egipto";
+    font-size: var(--letrasize);
+}

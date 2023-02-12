@@ -1,3 +1,4 @@
+
 body
 {
     background-color: black;
@@ -5,7 +6,6 @@ body
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
-
 }
 .main{
     background-color: rgba(255, 255, 255, 0.7);

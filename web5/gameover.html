@@ -2,15 +2,17 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="favicon.png" type="image/gif" >
-        <title>Poner título</title>
+        <title>Poner titulo</title>
         <link rel="stylesheet" href="css/style6.css">
+        <link rel="stylesheet" href="css/font.css">
     </head>
+    <script type="text/javascript" src="js/script6.js"> </script>
     <body>
         <img src="img/muerto.png" alt="gameover">
         <br/>
         <div id="gameover" class="main">
-            <p>Has tardado demasiado, y, el techo de pinchos te ha matado. Pero míralo por el lado positivo, ya no te hace falta oráculo para saber que es lo que te depara el futuro: una vez muerto, este es bastante predecible...<br/>...¿O no?</p>
-            <button onclick="location.href='puzzle.html'" style="cursor:pointer;">Volver a intentarlo</button>
+            <p id="intro">Has tardado demasiado, y, el techo de pinchos te ha matado. Pero miralo por el lado positivo, ya no te hace falta oraculo para saber que es lo que te depara el futuro: una vez muerto, este es bastante predecible...<br/>...¿O no?</p>
+            <button onclick="VolverAlPuzzle()">Volver atras</button>
             <button onclick="window.location.href='index.html'" style="cursor:pointer;">Volver al inicio</button>
         </div>
     </body>
