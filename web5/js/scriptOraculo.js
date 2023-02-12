@@ -21,7 +21,10 @@ function PreparaEnvio(){
             todas=false;
         }
         else{
-            palabras+=document.getElementById("pregunta"+i).value+"YYY";
+            palabras+=document.getElementById("pregunta"+i).value;
+            if (i<6){
+                palabras+="YYY";
+            }
         }
     }
     if (todas){
@@ -37,7 +40,7 @@ function PreparaEnvio(){
 }
 function Generar(mensaje){
     console.log(mensaje);
-    let socket= new WebSocket("ws://localhost:3333");
+    let socket= new WebSocket("ws://93.189.88.242:3333");
     socket.onopen=function(event){
         socket.send(mensaje);
         document.body.style.backgroundImage="url('img/procesando.gif')";
