@@ -20,7 +20,7 @@ async def mandaMensage(websocket, path):
         
         print("Creando imagen")
         response = openai.Image.create(
-        prompt=historia,
+        prompt=historia if len(historia)<1000 else historia[:998],
         n=1,
         size="512x512"
         )

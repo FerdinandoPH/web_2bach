@@ -42,4 +42,8 @@ function VolverAlPuzzle(){
 window.onload=function(){
     CogeArgs();
     Hablar();
+    if(sonido==true){
+        audio=new Audio("audio/gameover.mp3");
+        audio.play();
+    }
 }

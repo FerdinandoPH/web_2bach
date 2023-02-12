@@ -2,6 +2,7 @@ var sonido=true;
 var tts=false;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
+audio = new Audio();
 function CogeArgs(){
     //Coge dos argumentos: letra y sonido
     var url_string = window.location.href;
@@ -40,9 +41,13 @@ function Hablar(){
 function SiguienteEscena(escena){
     //change the background image
     if (escena==1){
-        document.body.style.backgroundImage = "url('img/trampa.png')";
+        document.body.style.backgroundImage = "url('img/trampa.jpg')";
         document.getElementById("texto").innerHTML = "¡Miras hacia arriba, y descubres con horror que el techo esta lleno de pinchos, y estan bajando lentamente!<br/>¡Tienes que darte prisa, o moriras!";
         Hablar();
+        if(sonido==true){
+            audio.src="audio/trampa.mp3";
+            audio.play();
+        }
         document.getElementById("boton").onclick = function(){SiguienteEscena(2)};
     }
     else if (escena==2){

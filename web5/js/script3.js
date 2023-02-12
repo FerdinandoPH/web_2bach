@@ -5,7 +5,7 @@ textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 function Suena(){
     if (sonidoSON==true){
-        sonido=new Audio("fx/n.mp3");
+        sonido=new Audio("audio/n.mp3");
         sonido.pause();
         sonido.loop=true;
         try{

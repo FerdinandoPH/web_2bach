@@ -2,9 +2,10 @@ var sonido=true;
 var tts=false;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
+audio=new Audio("audio/oraculo.mp3");
 function ContinuaIntro (p){
     if(p==1){
-        document.getElementById("oraculo").style.display="block";
+        document.getElementById("oraculo").style.visibility="visible";
         document.getElementById("textoIntro").innerHTML="¿Pero que tenemos aqui? ¿Un humano? Ha pasado mucho tiempo desde la ultima vez que alguien vino aqui. El ultimo en venir fue el bisabuelo del faraon actual, que vino a preguntarme si su descendencia seguria gobernando Egipto.<br/>Cuando le dije que el proximo en llegar seria el nuevo faraon, mando instalar trampas y cubrir el templo de arena. Pero lo que veo siempre es acertado, y hete ahora aqui, ya sabes cual es tu destino";
         Hablar();
         document.getElementById("botonIntro").onclick=function(){ContinuaIntro(2)};
@@ -18,7 +19,7 @@ function ContinuaIntro (p){
 function AbreFormulario(){
     speechSynthesis.cancel();
     document.getElementById("formulario").style.display="block";
-    document.getElementById("intro").style.display="none";
+    document.getElementById("intro").style.visibility="hidden";
 }
 function CogeArgs(){
     //Coge dos argumentos: letra y sonido
@@ -71,7 +72,7 @@ function PreparaEnvio(){
     }
     if (todas){
         document.getElementById("formulario").style.display="none";
-        document.getElementById("intro").style.display="block";
+        document.getElementById("intro").style.visibility="visible";
         document.getElementById("textoIntro").innerHTML="Mmm, muy interesante. ¿Estas listo para conocer tu futuro?";
         Hablar();
         document.getElementById("botonIntro").onclick=function(){Generar(palabras)};
@@ -91,12 +92,13 @@ function ErrorHandler(error){
     Hablar();
     document.getElementById("botonIntro").onclick=function(){AbreFormulario()};
     document.getElementById("botonIntro").innerHTML="Intentarlo de nuevo";
-    document.getElementById("botonIntro").style.display="block";
+    document.getElementById("intro").style.visibility="visible";
 }
 function Generar(mensaje){
+    audio.volume=1;
     speechSynthesis.cancel();
-    document.getElementById("textoIntro").innerHTML="";
-    document.getElementById("botonIntro").style.display="none";
+    document.getElementById("textoIntro").innerHTML="<br/>";
+    document.getElementById("main").style.visibility="hidden";
     console.log(mensaje);
     try{
         let socket= new WebSocket("ws://93.189.88.242:3333");
@@ -105,9 +107,11 @@ function Generar(mensaje){
             document.body.style.backgroundImage="url('img/procesando.gif')";
         }
         socket.onmessage=function(event){
+            audio.volume=0.3;
+            document.getElementById("main").style.visibility="visible";
             document.getElementById("botonIntro").onclick=function(){window.location.href="index.html"};
             document.getElementById("botonIntro").innerHTML="Volver al inicio";
-            document.getElementById("botonIntro").style.display="block";
+            document.getElementById("intro").style.visibility="visible";
             document.body.style.backgroundImage="url('img/oraculoTemplo.jpg')";
             if (event.data[0]=="E"){
                 ErrorHandler(event);
@@ -116,7 +120,7 @@ function Generar(mensaje){
                 
 
                 console.log(event.data.substring(1));
-                document.getElementById("resultado").innerHTML=event.data.substring(1);
+                document.getElementById("resultado").innerHTML=event.data.substring(1)+"<br/>Esta es una visión de parte de tu futuro:";
                 if(tts==true){
                     speechSynthesis.cancel();
                     textoavoz.text=event.data.substring(1);
@@ -126,20 +130,28 @@ function Generar(mensaje){
             }
             else if (event.data[0]=="I"){
                 var link=event.data.substring(1);
-                document.getElementById("imagenhistoria").style.display="block";
+                document.getElementById("imagenhistoria").style.visibility="visible";
                 document.getElementById("imagenhistoria").src=link;
             }
         }
         socket.onerror=function(event){
+            document.getElementById("main").style.visibility="visible";
+            audio.volume=0.2;
             ErrorHandler(event);
         }
     }
     catch(error){
+        document.getElementById("main").style.visibility="visible";
         ErrorHandler(error);
     }
 }
 window.onload=function(){
     CogeArgs();
     Hablar();
-    document.getElementById("imagenhistoria").style.display="none";
+    document.getElementById("imagenhistoria").visibility="hidden";
+    if(sonido==true){
+        audio.loop=true;
+        audio.volume=0.2;
+        audio.play();
+    }
 }

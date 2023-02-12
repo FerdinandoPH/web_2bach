@@ -31,7 +31,8 @@ body
     opacity: 0.7;
 }
 #ui{
-    position: absolute;
+    /*position: absolute;*/
+    margin-top:600px;
     top: 600px;
     left: 48%;
     z-index: 2;

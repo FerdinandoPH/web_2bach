@@ -5,6 +5,7 @@ var seleccionado=null;
 var tiempo=15;
 var sonido=true;
 var tts=false;
+var intervalo;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 class Pieza{
@@ -54,7 +55,7 @@ function sumapx(pix,num){
     return suma+"px";
 }
 function ColocaPiezas(){
-    var offsetx=766;
+    var offsetx=736;
     var offsety=100;
     for (var i=0;i<9;i++){
         document.getElementById("i"+(i+1)).style.left=sumapx(piezas[i].pos[0],offsetx);
@@ -85,7 +86,14 @@ function Clickado(id){
         document.getElementById(seleccionado).style.border="none";
         seleccionado=null;
         if (Comprueba()){
-            window.location.href="oraculo.html?letra="+getComputedStyle(document.documentElement).getPropertyValue('--letrasize')+"&sonido="+sonido+"&tts="+tts;
+            clearInterval(intervalo);
+            if(sonido==true){
+                audio=new Audio("audio/win.mp3");
+                audio.play();
+                setTimeout(function(){window.location.href="oraculo.html?letra="+getComputedStyle(document.documentElement).getPropertyValue('--letrasize')+"&sonido="+sonido+"&tts="+tts;},3000);
+            }
+            else
+                window.location.href="oraculo.html?letra="+getComputedStyle(document.documentElement).getPropertyValue('--letrasize')+"&sonido="+sonido+"&tts="+tts;
         }
     }
 }
@@ -100,7 +108,7 @@ function Mostrarpiezas(mostrar){
     }
 }
 function timeUpdate(){
-   // tiempo--;
+    tiempo--;
     var medidor=document.getElementById("tiempomet");
     medidor.value=tiempo;
     var texto=document.getElementById("tiempotext");
@@ -114,7 +122,7 @@ function ComenzarJuego(){
     Mostrarpiezas(true);
     document.getElementById("intro").style.display="none";
     document.getElementById("ui").style.opacity="1";
-    var intervalo=setInterval(timeUpdate,1000);
+    intervalo=setInterval(timeUpdate,1000);
 }
 function Inicio(){
     //Hay 9 piezas, cada una con un id y una posicion

@@ -8,8 +8,8 @@
         <script type="text/javascript" src="js/scriptOraculo.js"></script>
     </head>
     <body>
-        <img src="img/oraculo.png" id="oraculo" style="display:none;" alt="El mismísimo oráculo de Amón" title="El mismísimo oráculo de Amón">
-        <div class="main">
+        <img src="img/oraculo.png" id="oraculo" style="visibility: hidden;" alt="El mismísimo oráculo de Amón" title="El mismísimo oráculo de Amón">
+        <div class="main" id="main">
             <!--
             <p>Prueba: pon 3 palabras (pon el articulo un/una delante)</p>
             <input type="text" id="palabra1" placeholder="Palabra 1">
@@ -32,8 +32,10 @@
                 <button onclick="function Volver(){location.href='index.html'};Volver()">Salir</button>
                 <button onclick="PreparaEnvio()">Listo</button>
             </div>
-            <p id="resultado"></p>
+            <div id="divresultado">
+                <p id="resultado"></p>
+            </div>
         </div>
-        <img id="imagenhistoria" src="" alt="La visión de tu historia" title="La visión de tu historia">
+        <img id="imagenhistoria" src="" style="visibility: hidden;"alt="La visión de tu historia" title="La visión de tu historia">
     </body>
 </html>
