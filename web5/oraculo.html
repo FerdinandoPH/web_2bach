@@ -8,7 +8,7 @@
         <script type="text/javascript" src="js/scriptOraculo.js"></script>
     </head>
     <body>
-        <img src="img/oraculo.png" id="oraculo" style="display:none;">
+        <img src="img/oraculo.png" id="oraculo" style="display:none;" alt="El mismísimo oráculo de Amón" title="El mismísimo oráculo de Amón">
         <div class="main">
             <!--
             <p>Prueba: pon 3 palabras (pon el articulo un/una delante)</p>
@@ -28,11 +28,12 @@
                 <p>Dime el primer animal que se te venga a la cabeza <input id="pregunta3"></p>
                 <p>¿Cual es tu 2ª estacion favorita? <input id="pregunta4"></p>
                 <p>Dime un verbo de accion (en infinitivo) <input id="pregunta5"></p>
-                <button onclick="PreparaEnvio()">Listo</button>
+                <button onclick="BorrarTexto()">Borrar</button>
                 <button onclick="function Volver(){location.href='index.html'};Volver()">Salir</button>
+                <button onclick="PreparaEnvio()">Listo</button>
             </div>
             <p id="resultado"></p>
         </div>
-        <img id="imagenhistoria" src="">
+        <img id="imagenhistoria" src="" alt="La visión de tu historia" title="La visión de tu historia">
     </body>
 </html>

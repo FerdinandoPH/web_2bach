@@ -80,6 +80,11 @@ function PreparaEnvio(){
         alert("Debes responder todas las preguntas");
     }
 }
+function BorrarTexto(){
+    for (i=1;i<=5;i++){
+        document.getElementById("pregunta"+i).value="";
+    }
+}
 function ErrorHandler(error){
     document.getElementById("textoIntro").innerHTML="Vaya, parece que ha habido una perturbacion en mi vision. ¿Podrias volver a intentarlo?";
     Hablar();
@@ -107,6 +112,8 @@ function Generar(mensaje){
                 ErrorHandler(event);
             }
             else if (event.data[0]=="H"){
+                
+
                 console.log(event.data.substring(1));
                 document.getElementById("resultado").innerHTML=event.data.substring(1);
                 if(tts==true){
@@ -118,6 +125,7 @@ function Generar(mensaje){
             }
             else if (event.data[0]=="I"){
                 var link=event.data.substring(1);
+                document.getElementById("imagenhistoria").style.display="block";
                 document.getElementById("imagenhistoria").src=link;
             }
         }
@@ -132,4 +140,5 @@ function Generar(mensaje){
 window.onload=function(){
     CogeArgs();
     Hablar();
+    document.getElementById("imagenhistoria").style.display="none";
 }

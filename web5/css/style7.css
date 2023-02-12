@@ -19,6 +19,8 @@ body
     padding: 20px;
     margin: 20px;
     overflow: auto;
+    text-align: center;
+    
  
 }
 #oraculo{

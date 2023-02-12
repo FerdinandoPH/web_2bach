@@ -100,7 +100,7 @@ function Mostrarpiezas(mostrar){
     }
 }
 function timeUpdate(){
-    tiempo--;
+   // tiempo--;
     var medidor=document.getElementById("tiempomet");
     medidor.value=tiempo;
     var texto=document.getElementById("tiempotext");
@@ -123,7 +123,8 @@ function Inicio(){
     for (var i=0;i<9;i++){
         piezas[i]=new Pieza(i+1,posiciones[i]);
         document.getElementById("i"+(i+1)).addEventListener("click",function(){Clickado(this.id)});
-        document.getElementById("i"+(i+1)).setAttribute("alt","i"+(i+1));
+        document.getElementById("i"+(i+1)).setAttribute("alt","Pieza "+(i+1));
+        document.getElementById("i"+(i+1)).setAttribute("title","Pieza "+(i+1));
     }
     Hablar();
     ColocaPiezas();
