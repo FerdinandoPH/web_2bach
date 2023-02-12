@@ -14,3 +14,9 @@ function CambiaSize(haciadonde){
     document.documentElement.style.setProperty('--letrasize', letrafinal);
     document.getElementById("tamletrap").innerHTML="Letra: "+letrafinal+"<button style=\"font-size: 20px;\"onclick=\"CambiaSize(true)\">+</button> <button style=\"font-size: 20px;\"onclick=\"CambiaSize(false)\">-</button>";
 }
+window.onload=function(){
+    //check if the site is https
+    if (location.protocol != 'https:'){
+        alert("Este sitio web no funciona correctamente en https. Por favor, accede a la versión http.");
+    }
+}
