@@ -1,5 +1,6 @@
 from revChatGPT.V2 import Chatbot
-import websockets,asyncio,base64,openai,traceback
+import websockets,asyncio,openai,traceback,os
+openai.api_key=os.getenv("OPENAI_API_KEY")
 async def mandaMensage(websocket, path):
     print("ALGUIEN ")
     palabras = await websocket.recv()
