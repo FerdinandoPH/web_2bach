@@ -1,4 +1,5 @@
 var sonido=true;
+var tts=false;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 function ContinuaIntro (p){
