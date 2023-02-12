@@ -16,7 +16,7 @@ async def mandaMensage(websocket, path):
         print()
         print("Respuesta: "+historia)
         await websocket.send("H"+historia)
-        '''
+        
         print("Creando imagen")
         response = openai.Image.create(
         prompt=historia,
@@ -26,7 +26,6 @@ async def mandaMensage(websocket, path):
         image_url = response['data'][0]['url'] #type: ignore
         print(image_url)
         await websocket.send("I"+image_url)
-        '''
     except Exception as e:
         print("Error: "+str(e))
         print("traceback: "+traceback.format_exc())
