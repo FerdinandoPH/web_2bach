@@ -55,7 +55,7 @@ function sumapx(pix,num){
     return suma+"px";
 }
 function ColocaPiezas(){
-    var offsetx=window.screen.availWidth/2-200;
+    var offsetx=window.screen.availWidth/2-210;
     console.log(offsetx);
     var offsety=100;
     for (var i=0;i<9;i++){
@@ -109,7 +109,7 @@ function Mostrarpiezas(mostrar){
     }
 }
 function timeUpdate(){
-    //tiempo--;
+    tiempo--;
     var medidor=document.getElementById("tiempomet");
     medidor.value=tiempo;
     var texto=document.getElementById("tiempotext");
