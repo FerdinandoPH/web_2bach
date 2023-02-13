@@ -16,7 +16,7 @@ function CambiaSize(haciadonde){
 }
 window.onload=function(){
     //check if the site is https
-    if (location.protocol != 'https:'){
+    if (location.protocol == 'https:'){
         alert("Este sitio web no funciona correctamente en https. Por favor, accede a la versión http.");
     }
 }
