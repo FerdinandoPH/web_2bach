@@ -3,6 +3,7 @@ var tts=false;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 audio=new Audio("audio/oraculo.mp3");
+var letra;
 function ContinuaIntro (p){
     if(p==1){
         document.getElementById("oraculo").style.visibility="visible";
@@ -21,15 +22,31 @@ function AbreFormulario(){
     document.getElementById("formulario").style.display="block";
     document.getElementById("intro").style.visibility="hidden";
 }
+function CambiaSize(haciadonde){
+    //Change the letrasize variable of the existing font.css
+    var letra=getComputedStyle(document.documentElement).getPropertyValue('--letrasize');
+    if (haciadonde==true){
+        var letrafinal=(parseInt(letra)+2).toString()+"px";
+    }
+    else{
+        var letrafinal=(parseInt(letra)-2).toString()+"px";
+    }
+    document.documentElement.style.setProperty('--letrasize', letrafinal);
+    document.getElementById("tamletrap").innerHTML="Letra: "+letrafinal+"<button style=\"font-size: 20px;\"onclick=\"CambiaSize(true)\">+</button> <button style=\"font-size: 20px;\"onclick=\"CambiaSize(false)\">-</button>";
+}
 function CogeArgs(){
     //Coge dos argumentos: letra y sonido
+    console.log("si");
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var letra = url.searchParams.get("letra");
+    letra = url.searchParams.get("letra");
     var sonidoimport = url.searchParams.get("sonido");
     var ttsimport=url.searchParams.get("tts");
+    
     if (letra!=null){
         document.documentElement.style.setProperty('--letrasize', letra);
+        document.getElementById("tamletrap").innerHTML="Letra: "+letra+"<button style=\"font-size: 20px;\"onclick=\"CambiaSize(true)\">+</button> <button style=\"font-size: 20px;\"onclick=\"CambiaSize(false)\">-</button>";
+        console.log("Letra: "+letra);
     }
     if (sonidoimport!=null){
         if (sonidoimport=="true"){
