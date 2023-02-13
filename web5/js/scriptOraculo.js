@@ -102,7 +102,7 @@ function Generar(mensaje){
     document.getElementById("intro").style.visibility="hidden";
     console.log(mensaje);
     try{
-        let socket= new WebSocket("ws://93.189.88.242:3333");
+        let socket= new WebSocket("wss://93.189.88.242:3333");
         socket.onopen=function(event){
             socket.send(mensaje);
             document.body.style.backgroundImage="url('img/procesando.gif')";
