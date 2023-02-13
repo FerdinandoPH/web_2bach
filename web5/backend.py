@@ -20,7 +20,7 @@ async def mandaMensage(websocket, path):
         
         print("Creando imagen")
         response = openai.Image.create(
-        prompt="Una imagen fotorrealista de un campesino egipcio con la corona de faraón en unos campos en"+listapalabras[1]+", con "+listapalabras[2]+" a su lado.",
+        prompt="Una fotografía a color de un campesino egipcio con la corona de faraón en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado.",
         n=1,
         size="512x512"
         )
