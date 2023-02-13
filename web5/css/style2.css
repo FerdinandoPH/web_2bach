@@ -9,6 +9,7 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: auto;
+    background-position: center center;
     text-align: center;
 }
 .main{
