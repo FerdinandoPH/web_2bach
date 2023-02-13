@@ -16,6 +16,7 @@ function CambiaSize(haciadonde){
 }
 function Narrar(){
     speechSynthesis.cancel();
+    var textoavoz=new SpeechSynthesisUtterance();
     textoavoz.text=document.getElementById("intro").innerHTML+". "+document.getElementById("expl1").innerHTML+". "+document.getElementById("expl2").innerHTML;
     textoavoz.lang="es-ES";
     speechSynthesis.speak(textoavoz);
