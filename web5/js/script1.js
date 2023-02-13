@@ -14,6 +14,12 @@ function CambiaSize(haciadonde){
     document.documentElement.style.setProperty('--letrasize', letrafinal);
     document.getElementById("tamletrap").innerHTML="Letra: "+letrafinal+"<button style=\"font-size: 20px;\"onclick=\"CambiaSize(true)\">+</button> <button style=\"font-size: 20px;\"onclick=\"CambiaSize(false)\">-</button>";
 }
+function Narrar(){
+    speechSynthesis.cancel();
+    textoavoz.text=document.getElementById("Intro").innerHTML+". "+document.getElementById("expl1").innerHTML+". "+document.getElementById("expl2").innerHTML;
+    textoavoz.lang="es-ES";
+    speechSynthesis.speak(textoavoz);
+}
 window.onload=function(){
     //check if the site is https
     if (location.protocol == 'https:'){

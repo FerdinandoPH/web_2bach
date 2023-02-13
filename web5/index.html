@@ -11,7 +11,7 @@
         <div class="main">
             <h1>En busca del oraculo de Amon</h1>
             <h2>Advertencia: Mejor experiencia con pantalla maximizada</h2>
-            <p class="historia">¡Bienvenid@, joven aventurer@! </p>
+            <p class="historia" id="intro">¡Bienvenid@, joven aventurer@! </p>
             <img src="img/campesino.jpeg" title="un campesino egipcio, qué bonito retrato" alt="un campesino egipcio, qué bonito retrato" style="width:250px;height: auto;">
             <p class="historia" id="expl1">Eres un campesino egipcio que vive una vida humilde y miserable por culpa de las sequias y los tributos, pero eso podria cambiar. Segun lo que has oido de unos mercaderes que pasaban por tus campos, hay un templo perdido en lo mas profundo del desierto que pertenece al mismisimo Dios Amon-Ra. Dentro de este templo se encuentra el oraculo de Amon, que es capaz de ver el futuro mas prospero de una persona y hacerlo realidad. Sin embargo tambien has oido que todo aquel que ha intentado llegar hasta el oraculo ha muerto en su intento. Pero no tienes nada que perder, y te lanzas a la aventura.</p>
             <img src="img/mapa.png" alt="un mapa del desierto con el que puedes encontrar el templo abandonado" title="un mapa del desierto con el que puedes encontrar el templo abandonado" style="width:200px;height: auto;">
@@ -27,6 +27,7 @@
                 <p id="sonidop">Sonido: <input type="checkbox" id="sonido" checked> </p>
                 <p id="textoavozp">Texto a voz: <input type="checkbox" id="textoavoz"> </p>
             </div>
+            <button narrar onclick="Narrar()">Narrar</button>
         </div>
     </body>
 </html>
