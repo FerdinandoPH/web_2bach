@@ -1,6 +1,12 @@
 from revChatGPT.V2 import Chatbot
 import websockets,asyncio,openai,traceback,os,json,logging,ssl
+logging.basicConfig()
 openai.api_key=os.getenv("OPENAI_API_KEY")
+ssl_context=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+currdir=os.path.dirname(os.path.abspath(__file__))
+ssl_cert=currdir+"\\keys\\fullchain.pem"
+ssl_key=currdir+"\\keys\\privkey.pem"
+ssl_context.load_cert_chain(ssl_cert,ssl_key)
 async def mandaMensage(websocket, path):
     print("ALGUIEN ")
     palabras = await websocket.recv()
@@ -34,6 +40,6 @@ async def mandaMensage(websocket, path):
     await websocket.close()
 async def main():
     print("init")
-    async with websockets.serve(mandaMensage, "93.189.88.242", 3333): #type: ignore
+    async with websockets.serve(mandaMensage, "93.189.88.242", 3333,ssl=ssl_context): #type: ignore
         await asyncio.Future()
 asyncio.run(main())
