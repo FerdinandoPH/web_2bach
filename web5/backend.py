@@ -10,7 +10,7 @@ async def mandaMensage(websocket, path):
     historia=""
     try:
         chatbot = Chatbot(email="fernandoperezholguin2005@gmail.com", password="Ferai2303")
-        async for line in chatbot.ask("Crea una breve historia en la que el (o la) protagonista sea un campesino/a del antiguo egipto llamado "+listapalabras[0]+". La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón"): #type: ignore
+        async for line in chatbot.ask("Crea una breve historia en la que el (o la) protagonista sea un campesino/a del antiguo egipto, llamado "+listapalabras[0]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería el futuro faraón. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón"): #type: ignore
             historia+=line["choices"][0]["text"].replace("<|im_end|>", "")
             #print(line["choices"][0]["text"].replace("<|im_end|>", ""), end="")
             #sys.stdout.flush()
@@ -20,7 +20,7 @@ async def mandaMensage(websocket, path):
         
         print("Creando imagen")
         response = openai.Image.create(
-        prompt=historia if len(historia)<1000 else historia[:998],
+        prompt="Un campesino egipcio con la corona de faraón en unos campos en"+listapalabras[1]+", con "+listapalabras[2]+" a su lado",
         n=1,
         size="512x512"
         )
