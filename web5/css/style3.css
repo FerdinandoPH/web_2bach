@@ -5,7 +5,8 @@ body
     background-image: url("../img/fail.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: auto;
+    background-size: cover;
+    background-position: center center;
     text-align: center;
 
 }
