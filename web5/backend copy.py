@@ -40,6 +40,6 @@ async def mandaMensage(websocket, path):
     await websocket.close()
 async def main():
     print("init")
-    async with websockets.serve(mandaMensage, "93.189.88.242", 3333,ssl=ssl_context): #type: ignore
+    async with websockets.serve(mandaMensage, "93.189.88.242", 443,ssl=ssl_context): #type: ignore
         await asyncio.Future()
 asyncio.run(main())
