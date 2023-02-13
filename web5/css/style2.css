@@ -8,7 +8,7 @@ body
     background-image: url("../img/pasillo2c.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: auto;
     text-align: center;
 }
 .main{
