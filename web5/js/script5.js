@@ -55,7 +55,7 @@ function sumapx(pix,num){
     return suma+"px";
 }
 function ColocaPiezas(){
-    var offsetx=736;
+    var offsetx=window.screem.availWidth/2-200;
     var offsety=100;
     for (var i=0;i<9;i++){
         document.getElementById("i"+(i+1)).style.left=sumapx(piezas[i].pos[0],offsetx);
