@@ -19,7 +19,7 @@ async def mandaMensage(websocket, path):
         promptimagen="Una fotografía a color de una campesina del antiguo Egipto con la corona de faraona en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado."
     try:
         chatbot = Chatbot(config={"email":"fernandoperezholguin2005@gmail.com", "password":"Ferai2303"})
-        for line in chatbot.ask(prompthistoria): #type: ignore
+        for line in chatbot.ask(prompthistoria): 
             historia=line["message"]
             #print(line["choices"][0]["text"].replace("<|im_end|>", ""), end="")
             #sys.stdout.flush()
