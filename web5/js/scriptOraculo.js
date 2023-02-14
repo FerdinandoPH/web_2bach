@@ -151,6 +151,9 @@ function Generar(mensaje){
                 document.getElementById("imagenhistoria").style.visibility="visible";
                 document.getElementById("imagenhistoria").src=link;
             }
+            else if(event.data[0]=="S"){
+                console.log(event.data.substring(1));
+            }
         }
         socket.onerror=function(event){
             document.getElementById("main").style.visibility="visible";

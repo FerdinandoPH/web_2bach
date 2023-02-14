@@ -8,6 +8,7 @@ async def mandaMensage(websocket, path):
     print(listapalabras)
     print("Creando historia")
     historia=""
+    sust=""
     try:
         chatbot = Chatbot(config={"email":"fernandoperezholguin2005@gmail.com", "password":"Ferai2303"})
         for line in chatbot.ask("Crea una breve historia en la que el (o la) protagonista sea un campesino/a del antiguo egipto, llamado "+listapalabras[0]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería el futuro faraón. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón. Ten en cuenta que es muy inusual que un campesino se convierta en faraón así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que el protagonista sea elegido como nuevo faraón."): #type: ignore
@@ -16,6 +17,10 @@ async def mandaMensage(websocket, path):
             #sys.stdout.flush()
         print()
         print("Respuesta: "+historia)
+        for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto y escríbelos en el orden en el que aparecen, separados por comas: "+historia):
+            sust=line["message"]
+        print(sust)
+        await websocket.send("S"+sust)
         await websocket.send("H"+historia)
         
         print("Creando imagen")
