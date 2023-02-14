@@ -34,8 +34,12 @@
                 <button onclick="function Volver(){location.href='index.html'};Volver()">Salir</button>
                 <button onclick="PreparaEnvio()">Listo</button>
             </div>
+            <div id="config">
+                <p id="tamletrap">Letra: 18 px <button style="font-size: 20px;"onclick="CambiaSize(true)">+</button> <button style="font-size: 20px;"onclick="CambiaSize(false)">-</button> </p>
+                <span>Sonido:</span><input type="checkbox" id="sonidoC" onchange="CambiaSonido()"></checkbox>
+            </div>
             <div id="divresultado">
-                <p id="tamletrap">Letra: 18 px <button style="font-size: 20px;"onclick="CambiaSize(true)">+</button> <button style="font-size: 20px;"onclick="CambiaSize(false)">-</button></p>
+
                 <p id="resultado"></p>
                 
             </div>

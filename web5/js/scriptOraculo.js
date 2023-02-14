@@ -172,6 +172,19 @@ function Generar(mensaje){
         ErrorHandler(error);
     }
 }
+function CambiaSonido(){
+    if (document.getElementById("sonidoC").checked){
+        sonido=true;
+        audio.currentTime=0;
+        audio.loop=true;
+        audio.volume=0.2;
+        audio.play();
+    }
+    else{
+        sonido=false;
+        audio.pause();
+    }
+}
 window.onload=function(){
     CogeArgs();
     Hablar();
@@ -180,5 +193,7 @@ window.onload=function(){
         audio.loop=true;
         audio.volume=0.2;
         audio.play();
+        document.getElementById("sonidoC").checked=true;
     }
+
 }
