@@ -76,16 +76,22 @@ function Hablar(){
 function PreparaEnvio(){
     palabras=""
     todas=true;
-    for (i=1;i<=5;i++){
+    for (i=1;i<=6;i++){
         if (document.getElementById("pregunta"+i).value==""){
             todas=false;
         }
         else{
             palabras+=document.getElementById("pregunta"+i).value;
-            if (i<5){
+            if (i<6){
                 palabras+="YYY";
             }
         }
+    }
+    if(document.querySelector('input[name="genero"]:checked')!=null){
+        palabras+="YYY"+document.querySelector('input[name="genero"]:checked').value;
+    }
+    else{
+        todas=false;
     }
     if (todas){
         document.getElementById("formulario").style.display="none";
@@ -100,7 +106,7 @@ function PreparaEnvio(){
     }
 }
 function BorrarTexto(){
-    for (i=1;i<=5;i++){
+    for (i=1;i<=6;i++){
         document.getElementById("pregunta"+i).value="";
     }
 }
