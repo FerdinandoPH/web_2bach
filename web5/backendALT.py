@@ -2,7 +2,7 @@ from revChatGPT.V1 import Chatbot
 import websockets,asyncio,openai,traceback,os,json,logging,ssl
 openai.api_key=os.getenv("OPENAI_API_KEY")
 async def mandaMensage(websocket, path):
-    print("ALGUIEN ")
+    print("ALGUIEN SE HA CONECTADO")
     palabras = await websocket.recv()
     listapalabras = palabras.split("YYY")
     print(listapalabras)
@@ -32,9 +32,9 @@ async def mandaMensage(websocket, path):
         await websocket.send("S"+sust)
         print("Creando imagen")
         response = openai.Image.create(
-        prompt=promptimagen,
-        n=1,
-        size="512x512"
+            prompt=promptimagen,
+            n=1,
+            size="512x512"
         )
         image_url = response['data'][0]['url'] #type: ignore
         print(image_url)
