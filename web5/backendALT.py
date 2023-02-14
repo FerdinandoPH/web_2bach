@@ -10,7 +10,7 @@ async def mandaMensage(websocket, path):
     historia=""
     try:
         chatbot = Chatbot(config={"email":"fernandoperezholguin2005@gmail.com", "password":"Ferai2303"})
-        for line in chatbot.ask("Crea una breve historia en la que el (o la) protagonista sea un campesino/a del antiguo egipto, llamado "+listapalabras[0]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería el futuro faraón. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón. Ten en cuenta que es muy inusual que un campesino se convierta en faraón así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (por muerte, revolución, abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que el protagonista sea elegido como nuevo faraón."): #type: ignore
+        for line in chatbot.ask("Crea una breve historia en la que el (o la) protagonista sea un campesino/a del antiguo egipto, llamado "+listapalabras[0]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería el futuro faraón. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón. Ten en cuenta que es muy inusual que un campesino se convierta en faraón así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que el protagonista sea elegido como nuevo faraón."): #type: ignore
             historia=line["message"]
             #print(line["choices"][0]["text"].replace("<|im_end|>", ""), end="")
             #sys.stdout.flush()
@@ -20,7 +20,7 @@ async def mandaMensage(websocket, path):
         
         print("Creando imagen")
         response = openai.Image.create(
-        prompt="Una fotografía a color de un campesino egipcio con la corona de faraón en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado.",
+        prompt="Una fotografía a color de un campesino del antiguo Egipto con la corona de faraón en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado.",
         n=1,
         size="512x512"
         )
