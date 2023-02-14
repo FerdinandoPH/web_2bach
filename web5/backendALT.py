@@ -15,7 +15,7 @@ async def mandaMensage(websocket, path):
         promptimagen="Una fotografía a color de un campesino del antiguo Egipto con la corona de faraón en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado."
         prompthistoria="Crea una breve historia en la que el protagonista sea un campesino del antiguo egipto, llamado "+listapalabras[0]+" y de carácter "+listapalabras[5]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería el futuro faraón. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia el protagonista debe "+listapalabras[4]+". La historia debe acabar con el protagonista siendo nombrado faraón. Ten en cuenta que es muy inusual que un campesino se convierta en faraón así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que el protagonista sea elegido como nuevo faraón."
     elif listapalabras[6]=="mujer":
-        prompthistoria="Crea una breve historia en la que la protagonista sea una campesina del antiguo egipto, llamada "+listapalabras[0]+" y de carácter "+listapalabras[5]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería la futura faraona. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia la protagonista debe "+listapalabras[4]+". La historia debe acabar con la protagonista siendo nombrada faraona. Ten en cuenta que es muy inusual que una campesina se convierta en faraona así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que la protagonista sea elegida como nueva faraona."
+        prompthistoria="Crea una breve historia en la que la protagonista sea una campesina del antiguo Egipto, llamada "+listapalabras[0]+" y de carácter "+listapalabras[5]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería la futura faraona. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia la protagonista debe "+listapalabras[4]+". La historia debe acabar con la protagonista siendo nombrada faraona. Ten en cuenta que es muy inusual que una campesina se convierta en faraona así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que la protagonista sea elegida como nueva faraona."
         promptimagen="Una fotografía a color de una campesina del antiguo Egipto con la corona de faraona en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado."
     try:
         chatbot = Chatbot(config={"email":"fernandoperezholguin2005@gmail.com", "password":"Ferai2303"})
@@ -25,12 +25,11 @@ async def mandaMensage(websocket, path):
             #sys.stdout.flush()
         print()
         print("Respuesta: "+historia)
-        for line in chatbot.ask("Escoge 5 sustantivos del siguiente texto (que no estén muy juntos entre sí) y escríbelos en el orden en el que aparecen, separados por comas: "+historia):
+        for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto (asegúrate de que los sustantivos elegidos no aparezcan muy juntos los unos de los otros en el texto) y escríbelos en el orden en el que aparecen, separados por comas: "+historia):
             sust=line["message"]
         print(sust)
-        await websocket.send("S"+sust)
         await websocket.send("H"+historia)
-        
+        await websocket.send("S"+sust)
         print("Creando imagen")
         response = openai.Image.create(
         prompt=promptimagen,
