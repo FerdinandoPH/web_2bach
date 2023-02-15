@@ -41,6 +41,7 @@ async def mandaMensage(websocket, path):
         print(image_url)
         await websocket.send("I"+image_url)
         listasusts=sust.split(",")
+        '''
         print("Creando pictogramas")
         urlssust=[]
         for sustantivo in listasusts:
@@ -61,7 +62,7 @@ async def mandaMensage(websocket, path):
         for url in urlssust:
             stringsust+=url+separador
         await websocket.send("U"+stringsust)
-            
+            '''
     except Exception as e:
         print("Error: "+str(e))
         print("traceback: "+traceback.format_exc())
