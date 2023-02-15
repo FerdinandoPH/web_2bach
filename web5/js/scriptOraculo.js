@@ -158,7 +158,10 @@ function Generar(mensaje){
                 document.getElementById("imagenhistoria").src=link;
             }
             else if(event.data[0]=="S"){
-                console.log(event.data.substring(1));
+                console.log("Sustantivos: "+event.data.substring(1));
+            }
+            else if(event.data[0]=="U"){
+                console.log("URLs: "+event.data.substring(1));
             }
         }
         socket.onerror=function(event){
