@@ -1,5 +1,6 @@
 from revChatGPT.V1 import Chatbot
 import websockets,asyncio,openai,traceback,os,json,logging,ssl
+from serpapi import GoogleSearch
 openai.api_key=os.getenv("OPENAI_API_KEY")
 async def mandaMensage(websocket, path):
     print("ALGUIEN SE HA CONECTADO")
@@ -29,7 +30,6 @@ async def mandaMensage(websocket, path):
             sust=line["message"]
         print(sust)
         await websocket.send("H"+historia)
-        await websocket.send("S"+sust)
         print("Creando imagen")
         response = openai.Image.create(
             prompt=promptimagen,
@@ -39,6 +39,28 @@ async def mandaMensage(websocket, path):
         image_url = response['data'][0]['url'] #type: ignore
         print(image_url)
         await websocket.send("I"+image_url)
+        listasusts=sust.split(",")
+        print("Creando pictogramas")
+        urlssust=[]
+        for sustantivo in listasusts:
+            params = {
+                "q": sustantivo,
+                "tbm": "isch",
+                "ijn": "0",
+                "tbs":"itp:animated,isz:m",
+                "api_key": os.getenv("SERPAPI_API_KEY")
+            }
+            search = GoogleSearch(params)
+            results = search.get_dict()
+            images_results = results["images_results"][0]["original"]
+            urlssust.append(images_results)
+        print(urlssust)
+        stringsust=""
+        separador="YYY"
+        for url in urlssust:
+            stringsust+=url+separador
+        await websocket.send("S"+stringsust)
+            
     except Exception as e:
         print("Error: "+str(e))
         print("traceback: "+traceback.format_exc())
