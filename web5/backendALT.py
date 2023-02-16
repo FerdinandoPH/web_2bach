@@ -31,18 +31,9 @@ async def mandaMensage(websocket, path):
         print(sust)
         await websocket.send("H"+historia)
         await websocket.send("S"+sust)
-        print("Creando imagen")
-        response = openai.Image.create(
-            prompt=promptimagen,
-            n=1,
-            size="512x512"
-        )
-        image_url = response['data'][0]['url'] #type: ignore
-        print(image_url)
-        await websocket.send("I"+image_url)
-        listasusts=sust.split(",")
-        '''
+        #'''
         print("Creando pictogramas")
+        listasusts=sust.split(",")
         urlssust=[]
         for sustantivo in listasusts:
             params = {
@@ -62,7 +53,16 @@ async def mandaMensage(websocket, path):
         for url in urlssust:
             stringsust+=url+separador
         await websocket.send("U"+stringsust)
-            '''
+        #'''
+        print("Creando imagen")
+        response = openai.Image.create(
+            prompt=promptimagen,
+            n=1,
+            size="512x512"
+        )
+        image_url = response['data'][0]['url'] #type: ignore
+        print(image_url)
+        await websocket.send("I"+image_url)
     except Exception as e:
         print("Error: "+str(e))
         print("traceback: "+traceback.format_exc())
