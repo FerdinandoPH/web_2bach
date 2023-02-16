@@ -2,7 +2,7 @@ var posicionesbien=[["0px","0px"],["149px","0px"],["298px","0px"],["0px","149px"
 var posiciones=[...posicionesbien];
 var piezas=[];
 var seleccionado=null;
-var tiempo=15;
+var tiempo=30;
 var sonido=true;
 var tts=false;
 var intervalo;
