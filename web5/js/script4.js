@@ -4,7 +4,6 @@ textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 audio = new Audio();
 function CogeArgs(){
-    //Coge dos argumentos: letra y sonido
     var url_string = window.location.href;
     var url = new URL(url_string);
     var letra = url.searchParams.get("letra");
@@ -39,7 +38,6 @@ function Hablar(){
     }
 }
 function SiguienteEscena(escena){
-    //change the background image
     if (escena==1){
         document.body.style.backgroundImage = "url('img/trampa.jpg')";
         document.getElementById("texto").innerHTML = "¡Miras hacia arriba, y descubres con horror que el techo esta lleno de pinchos, y estan bajando lentamente!<br/>¡Tienes que darte prisa, o moriras!";

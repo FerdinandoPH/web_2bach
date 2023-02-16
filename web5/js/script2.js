@@ -13,17 +13,14 @@ function Hablar(){
     }
 }
 function RatonenFlecha(dirflecha){
-    //Change the image of the arrow to the animated gif
     //alert("Raton en "+dirflecha);
     document.getElementById(dirflecha).src="img/"+dirflecha+"anim.gif";
 }
 function RatonFueradeFlecha(dirflecha){
-    //Change the image of the arrow to the static png
     //alert("Raton fuera de "+dirflecha);
     document.getElementById(dirflecha).src="img/"+dirflecha+".gif";
 }
 function CogeArgs(){
-    //Coge dos argumentos: letra y sonido
     var url_string = window.location.href;
     var url = new URL(url_string);
     var letra = url.searchParams.get("letra");

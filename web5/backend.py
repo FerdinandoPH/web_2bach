@@ -1,3 +1,4 @@
+'''NO FUNCIONA
 from revChatGPT.V2 import Chatbot
 import websockets,asyncio,openai,traceback,os,json,logging,ssl
 openai.api_key=os.getenv("OPENAI_API_KEY")
@@ -37,3 +38,4 @@ async def main():
     async with websockets.serve(mandaMensage, "93.189.88.242", 3333): #type: ignore
         await asyncio.Future()
 asyncio.run(main())
+'''

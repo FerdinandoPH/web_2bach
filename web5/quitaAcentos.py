@@ -1,4 +1,4 @@
-#Replace á,é,í,ó,ú with a,e,i,o,u in all files inside the web5 folder ending in .html, .css or .js, except for this file, "backend.py" and the git folder. Include subfolders as well
+#Utilizado para borrar los acentos, que dan problemas con la fuente
 import os,sys
 def quitaAcentos(texto):
     texto=texto.replace("á","a")

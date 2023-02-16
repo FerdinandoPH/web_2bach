@@ -3,7 +3,6 @@ var tts=false;
 textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 function CogeArgs(){
-    //Coge dos argumentos: letra y sonido
     var url_string = window.location.href;
     var url = new URL(url_string);
     var letra = url.searchParams.get("letra");
