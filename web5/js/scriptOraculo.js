@@ -4,6 +4,7 @@ textoavoz=new SpeechSynthesisUtterance();
 speechSynthesis.cancel();
 audio=new Audio("audio/oraculo.mp3");
 var letra;
+var sustantivos=[];
 function ContinuaIntro (p){
     if(p==1){
         document.getElementById("oraculo").style.visibility="visible";
@@ -117,6 +118,15 @@ function ErrorHandler(error){
     document.getElementById("botonIntro").innerHTML="Intentarlo de nuevo";
     document.getElementById("intro").style.visibility="visible";
 }
+function ColocaPictografia(urls) {
+    var listaurls=urls.split("YYY");
+    var textoHistoria=document.getElementById("resultado").innerHTML;
+    for (i=0;i<sustantivos.length;i++){
+        textoHistoria=textoHistoria.replace(sustantivos[i],sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\"/>");
+    }
+    document.getElementById("resultado").innerHTML=textoHistoria;
+
+}
 function Generar(mensaje){
     audio.volume=1;
     speechSynthesis.cancel();
@@ -158,10 +168,12 @@ function Generar(mensaje){
                 document.getElementById("imagenhistoria").src=link;
             }
             else if(event.data[0]=="S"){
+                sustantivos=event.data.substring(1).split(", ");
                 console.log("Sustantivos: "+event.data.substring(1));
             }
             else if(event.data[0]=="U"){
                 console.log("URLs: "+event.data.substring(1));
+                ColocaPictografia(event.data.substring(1),sustantivos);
             }
         }
         socket.onerror=function(event){
