@@ -8,7 +8,7 @@ var sustantivos=[];
 function ContinuaIntro (p){
     if(p==1){
         document.getElementById("oraculo").style.visibility="visible";
-        document.getElementById("textoIntro").innerHTML="¿Pero que tenemos aqui? ¿Un humano? Ha pasado mucho tiempo desde la ultima vez que alguien vino aqui. El ultimo en venir fue el bisabuelo del faraon actual, que vino a preguntarme si su descendencia seguria gobernando Egipto.<br/>Cuando le dije que el proximo en llegar seria el nuevo faraon, mando instalar trampas y cubrir el templo de arena. Pero lo que veo siempre es acertado, y hete ahora aqui, ya sabes cual es tu destino";
+        document.getElementById("textoIntro").innerHTML="¿Pero que tenemos aqui? ¿Un humano? Ha pasado mucho tiempo desde la ultima vez que alguien vino aqui. El ultimo en venir fue el bisabuelo del faraon actual, que vino a preguntarme si su descendencia seguiria gobernando Egipto.<br/>Cuando le dije que el proximo en llegar seria el nuevo faraon, mando instalar trampas y cubrir el templo de arena. Pero lo que veo siempre es acertado, y hete ahora aqui, ya sabes cual es tu destino";
         Hablar();
         document.getElementById("botonIntro").onclick=function(){ContinuaIntro(2)};
     }
@@ -66,7 +66,10 @@ function CogeArgs(){
 function Hablar(){
     if (tts==true){
         speechSynthesis.cancel();
-        textoavoz.text=document.getElementById("textoIntro").innerHTML;
+        if (document.getElementById("resultado").innerHTML.length<1)
+            textoavoz.text=document.getElementById("textoIntro").innerHTML;
+        else
+            textoavoz.text=document.getElementById("resultado").innerHTML;
         textoavoz.lang="es-ES";
         speechSynthesis.speak(textoavoz);
     }
@@ -119,7 +122,8 @@ function ColocaPictografia(urls) {
     var listaurls=urls.split("YYY");
     var textoHistoria=document.getElementById("resultado").innerHTML;
     for (i=0;i<sustantivos.length;i++){
-        textoHistoria=textoHistoria.replace(sustantivos[i],sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\"/>");
+        var patron= new RegExp(sustantivos[i], 'gi');
+        textoHistoria=textoHistoria.replace(patron,sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\"/>");
     }
     document.getElementById("resultado").innerHTML=textoHistoria;
 
@@ -197,6 +201,16 @@ function CambiaSonido(){
         audio.pause();
     }
 }
+function CambiaTTS(){
+    if (document.getElementById("textoavoz").checked){
+        tts=true;
+        Hablar();
+    }
+    else{
+        tts=false;
+        speechSynthesis.cancel();
+    }
+}
 window.onload=function(){
     CogeArgs();
     Hablar();
@@ -207,5 +221,7 @@ window.onload=function(){
         audio.play();
         document.getElementById("sonidoC").checked=true;
     }
+    if (tts==true)
+        document.getElementById("textoavoz").checked=true;
 
 }

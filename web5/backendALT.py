@@ -26,11 +26,11 @@ async def mandaMensage(websocket, path):
             #sys.stdout.flush()
         print()
         print("Respuesta: "+historia)
+        await websocket.send("H"+historia)
         print("Eligiendo sustantivos")
         for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto (asegúrate de que los sustantivos elegidos no aparezcan muy juntos los unos de los otros en el texto) y escríbelos en el orden en el que aparecen, separados por comas: "+historia):
             sust=line["message"]
         print(sust)
-        await websocket.send("H"+historia)
         await websocket.send("S"+sust)
         #'''
         print("Creando pictogramas")
