@@ -170,7 +170,7 @@ function Generar(mensaje){
             }
             else if(event.data[0]=="U"){
                 console.log("URLs: "+event.data.substring(1));
-                ColocaPictografia(event.data.substring(1),sustantivos);
+                ColocaPictografia(event.data.substring(1));
             }
         }
         socket.onerror=function(event){
