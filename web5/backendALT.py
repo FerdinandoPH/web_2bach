@@ -19,7 +19,7 @@ async def mandaMensage(websocket, path):
         prompthistoria="Crea una breve historia en la que la protagonista sea una campesina del antiguo Egipto, llamada "+listapalabras[0]+" y de carácter "+listapalabras[5]+", que ha vuelto a su casa después de que un oráculo haya predicho que sería la futura faraona. La historia debe ocurrir en "+listapalabras[3]+". En algún punto de la historia debe aparecer el siguiente animal: "+listapalabras[2]+", y el número "+listapalabras[1]+". Además, en algún momento de la historia la protagonista debe "+listapalabras[4]+". La historia debe acabar con la protagonista siendo nombrada faraona. Ten en cuenta que es muy inusual que una campesina se convierta en faraona así que para que la historia tenga sentido, el antiguo faraón tiene que retirarse (debido a su muerte y la falta de descendientes, una revolución, su abdicación, u otra circunstancia) y debe ocurrir algo extraordinario para que la protagonista sea elegida como nueva faraona."
         promptimagen="Una fotografía a color de una campesina del antiguo Egipto con la corona de faraona en su cabeza, en unos campos en"+listapalabras[1]+", y con "+listapalabras[2]+" a su lado."
     try:
-        chatbot = Chatbot(config={"email":"fernandoperezholguin2005@gmail.com", "password":"Ferai2303"})
+        chatbot = Chatbot(config={"email":os.getenv("REVCHATGPT_EMAIL"), "password":os.getenv("REVCHATGPT_PASSWORD")})
         for line in chatbot.ask(prompthistoria): 
             historia=line["message"]
             #print(line["choices"][0]["text"].replace("<|im_end|>", ""), end="")
