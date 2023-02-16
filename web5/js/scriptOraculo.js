@@ -122,7 +122,7 @@ function ColocaPictografia(urls) {
     var listaurls=urls.split("YYY");
     var textoHistoria=document.getElementById("resultado").innerHTML;
     for (i=0;i<sustantivos.length;i++){
-        var patron= new RegExp(sustantivos[i], 'gi');
+        var patron= new RegExp(sustantivos[i].replace('.',''), 'gi');
         textoHistoria=textoHistoria.replace(patron,sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\"/>");
     }
     document.getElementById("resultado").innerHTML=textoHistoria;
