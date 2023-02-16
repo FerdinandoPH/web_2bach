@@ -13,7 +13,7 @@ function ContinuaIntro (p){
         document.getElementById("botonIntro").onclick=function(){ContinuaIntro(2)};
     }
     else if(p==2){
-        document.getElementById("textoIntro").innerHTML="¿Como? ¿Quieres saber como te convertiras en faraon? De acuerdo, pero para mas detalles necesito que me cuentes cosas sobre ti";
+        document.getElementById("textoIntro").innerHTML="¿Como? ¿Quieres saber como te convertiras en faraon? De acuerdo, pero para darte mas detalles necesito que me cuentes mas cosas sobre ti";
         Hablar();
         document.getElementById("botonIntro").onclick=function(){AbreFormulario()};
     }
