@@ -26,6 +26,7 @@ async def mandaMensage(websocket, path):
             #sys.stdout.flush()
         print()
         print("Respuesta: "+historia)
+        print("Eligiendo sustantivos")
         for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto (asegúrate de que los sustantivos elegidos no aparezcan muy juntos los unos de los otros en el texto) y escríbelos en el orden en el que aparecen, separados por comas: "+historia):
             sust=line["message"]
         print(sust)
@@ -63,6 +64,7 @@ async def mandaMensage(websocket, path):
         image_url = response['data'][0]['url'] #type: ignore
         print(image_url)
         await websocket.send("I"+image_url)
+        print("Todo listo :)")
     except Exception as e:
         print("Error: "+str(e))
         print("traceback: "+traceback.format_exc())
