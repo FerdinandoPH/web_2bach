@@ -37,7 +37,6 @@ function CambiaSize(haciadonde){
 }
 function CogeArgs(){
     //Coge dos argumentos: letra y sonido
-    console.log("si");
     var url_string = window.location.href;
     var url = new URL(url_string);
     letra = url.searchParams.get("letra");
