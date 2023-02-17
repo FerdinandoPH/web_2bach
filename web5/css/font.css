@@ -8,6 +8,7 @@
 button{
     font-family: "Egipto";
     font-size: var(--letrasize);
+    cursor: pointer;
 }
 body{
     font-family: "Egipto";
