@@ -122,16 +122,7 @@ function ColocaPictografia(urls) {
     var listaurls=urls.split("YYY");
     var textoHistoria=document.getElementById("resultado").innerHTML;
     for (i=0;i<sustantivos.length;i++){
-        var patron= new RegExp(sustantivos[i].replace('.',''), 'i');
-        textoHistoria=textoHistoria.replace(patron,sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\" id=\"picto"+i+"\"/>");
-        if (document.getElementById("picto"+i).naturalWidth>document.getElementById("picto"+i).naturalHeight){
-            document.getElementById("picto"+i).style.width="100px";
-            document.getElementById("picto"+i).style.height="auto";
-        }
-        else{
-            document.getElementById("picto"+i).style.width="auto";
-            document.getElementById("picto"+i).style.height="100px";
-        }
+        textoHistoria=textoHistoria.replace(sustantivos[i],sustantivos[i]+"<img src=\""+listaurls[i]+"\" class=\"picto\" id=\"picto"+i+"\"/>");
     }
     document.getElementById("resultado").innerHTML=textoHistoria;
 
