@@ -14,3 +14,6 @@ body{
     font-family: "Egipto";
     font-size: var(--letrasize);
 }
+input[type=checkbox]{
+    cursor: pointer;
+}
