@@ -28,10 +28,10 @@ async def mandaMensage(websocket, path):
         print("Respuesta: "+historia)
         await websocket.send("H"+historia)
         print("Eligiendo sustantivos")
-        for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto (asegúrate de que los sustantivos elegidos no aparezcan muy juntos los unos de los otros en el texto) y escríbelos tal y como aparecen en el texto y en el orden en el que aparecen, separados por comas y sin punto al final: "+historia):
+        for line in chatbot.ask("Escoge 5 sustantivos al azar del siguiente texto (asegúrate de que los sustantivos elegidos no aparezcan muy juntos los unos de los otros en el texto) y escríbelos tal y como aparecen en el texto (es decir, que las mayúsculas y las minúsculas coincidan) y en el orden en el que aparecen, separados por comas y sin punto al final: "+historia):
             sust=line["message"]
         print(sust)
-        await websocket.send("S"+sust)
+        await websocket.send("S"+sust.replace('.',''))
         #'''
         print("Creando pictogramas")
         listasusts=sust.split(",")
