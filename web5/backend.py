@@ -13,9 +13,9 @@ A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el 
         Se encarga de buscar en google las imagenes para la pictografía
         Es necesario crear una cuenta en https://serpapi.com/ para obtener la llave de la API. Una vez creada, ponla en el hueco marcado en el código. Se pueden hacer 100 peticiones al mes de forma gratuita.
     d: openai (pip install openai)
-        Se encarga de contactar con DALL-E para generar la imagen (y en el futuro, también servirá para ChatGPT). Es necesario crear una cuenta en https://openai.com/ (sirve la misma que la de ChatGPT) para obtener la llave de la API en https://platform.openai.com/account/api-keys . 
+        Se encarga de contactar con DALL-E para generar la imagen del final (y en el futuro, también servirá para ChatGPT). Es necesario crear una cuenta en https://openai.com/ (sirve la misma que la de ChatGPT) para obtener la llave de la API en https://platform.openai.com/account/api-keys . 
         Una vez creada, ponla en el hueco marcado en el código.
-        ADVERTENCIA: Dall-E es de pago (1,6 centimos por petición), así que he comentado el código que lo utiliza
+        ADVERTENCIA: Dall-E es de pago (1,6 céntimos por imagen), así que he comentado el código que lo utiliza
 
 Ojo, cuidado con que no se filtren las cuentas/claves API
 
