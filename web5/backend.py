@@ -26,7 +26,6 @@ Ojo, cuidado con que no se filtren las cuentas/claves API
 from revChatGPT.V1 import Chatbot
 import websockets,asyncio,openai,traceback,os
 from serpapi import GoogleSearch
-openai.api_key="PON TU CLAVE API DE OPENAI AQUÍ"
 async def MandaMensaje(websocket, path):
     print("ALGUIEN SE HA CONECTADO")
     palabras = await websocket.recv()
@@ -96,6 +95,7 @@ async def MandaMensaje(websocket, path):
         await websocket.send("E")
     await websocket.close()
 async def main():
+    openai.api_key="PON TU CLAVE API DE OPENAI AQUÍ"
     print("init")
     async with websockets.serve(MandaMensaje, "localhost", 3333): #type: ignore
         await asyncio.Future()
