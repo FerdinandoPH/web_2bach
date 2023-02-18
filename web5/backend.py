@@ -79,6 +79,7 @@ async def MandaMensaje(websocket, path):
             stringsust+=url+separador
         await websocket.send("U"+stringsust)
         #'''
+        ''' Sección comentada porque es de pago
         print("Creando imagen")
         response = openai.Image.create(
             prompt=promptimagen,
@@ -88,6 +89,7 @@ async def MandaMensaje(websocket, path):
         image_url = response['data'][0]['url'] #type: ignore
         print(image_url)
         await websocket.send("I"+image_url)
+        '''
         print("Todo listo :)")
     except Exception as e:
         print("Error: "+str(e))
