@@ -8,7 +8,7 @@ var sustantivos=[];
 function ContinuaIntro (p){
     if(p==1){
         document.getElementById("oraculo").style.visibility="visible";
-        document.getElementById("textoIntro").innerHTML="¿Pero que tenemos aqui? ¿Un humano? Ha pasado mucho tiempo desde la ultima vez que alguien vino aqui. El ultimo en venir fue el bisabuelo del faraon actual, que vino a preguntarme si su descendencia seguiria gobernando Egipto.<br/>Cuando le dije que el proximo en llegar seria el nuevo faraon, mando instalar trampas y cubrir el templo de arena. Pero lo que veo siempre es acertado, y hete ahora aqui, ya sabes cual es tu destino";
+        document.getElementById("textoIntro").innerHTML="¿Pero que tenemos aqui? ¿Un humano? Ha pasado mucho tiempo desde la ultima vez que alguien vino aqui. El ultimo en venir fue el bisabuelo del faraon actual, que vino a preguntarme si su descendencia seguiria gobernando Egipto.<br/>Cuando le dije que el proximo en llegar seria el nuevo faraon, mando instalar trampas y cubrir el templo de arena. Pero lo que veo siempre es acertado, y alguien ha logrado llegar. Ese eres tu";
         Hablar();
         document.getElementById("botonIntro").onclick=function(){ContinuaIntro(2)};
     }
@@ -222,5 +222,7 @@ window.onload=function(){
     }
     if (tts==true)
         document.getElementById("textoavoz").checked=true;
-
+    if (location.protocol == 'https:'){
+        alert("Este sitio web no funciona correctamente en https. Por favor, accede a la versión http.");
+    }
 }

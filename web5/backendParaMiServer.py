@@ -1,5 +1,8 @@
+'''
+Se borrará el 20/02/2023
+'''
 from revChatGPT.V1 import Chatbot
-import websockets,asyncio,openai,traceback,os,json,logging,ssl
+import websockets,asyncio,openai,traceback,os
 from serpapi import GoogleSearch
 openai.api_key=os.getenv("OPENAI_API_KEY")
 async def mandaMensage(websocket, path):
