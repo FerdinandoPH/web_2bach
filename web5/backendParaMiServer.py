@@ -5,7 +5,7 @@ from revChatGPT.V1 import Chatbot
 import websockets,asyncio,openai,traceback,os
 from serpapi import GoogleSearch
 openai.api_key=os.getenv("OPENAI_API_KEY")
-async def mandaMensage(websocket, path):
+async def MandaMensaje(websocket, path):
     print("ALGUIEN SE HA CONECTADO")
     palabras = await websocket.recv()
     listapalabras = palabras.split("YYY")
@@ -75,6 +75,6 @@ async def mandaMensage(websocket, path):
     await websocket.close()
 async def main():
     print("init")
-    async with websockets.serve(mandaMensage, "93.189.88.242", 3333): #type: ignore
+    async with websockets.serve(MandaMensaje, "93.189.88.242", 3333): #type: ignore
         await asyncio.Future()
 asyncio.run(main())

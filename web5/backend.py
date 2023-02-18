@@ -7,7 +7,7 @@ A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el 
     a: para la conexión a internet: websockets (pip install websockets) y asyncio (pip install asyncio)
     b: revChatGPT (pip install revChatGPT)
         Se encarga de contactar con ChatGPT para generar la historia y elegir los sustantivos.
-        ADVERTENCIA: revChatGPT es una API filtrada de ChatGPT publicada https://github.com/acheong08/ChatGPT . Como no es oficial, puede que no funcione en el futuro, o que sea necesario cambiar el código. En el futuro saldrá la API oficial, en ese caso, es mejor cambiar a esa API, que ya se utiliza en este programa para la imagen de DALL-E.
+        ADVERTENCIA: revChatGPT es una API filtrada de ChatGPT publicada https://github.com/acheong08/ChatGPT . Como no es oficial, puede que no funcione en el futuro, sea necesario actualizar el módulo varias veces, o que sea necesario cambiar el código. En el futuro saldrá la API oficial, en ese caso, es mejor cambiar a esa API, que ya se utiliza en este programa para la imagen de DALL-E.
         En el momento de escribir estas instrucciones, se necesita una cuenta de openai (de correo y contraseña, no de Google) para que funcione la API. Ponlos en el hueco marcado en el código
     c: serpapi (pip install google-search-results)
         Se encarga de buscar en google las imagenes para la pictografía
@@ -19,7 +19,7 @@ A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el 
 
 Ojo, cuidado con que no se filtren las cuentas/claves API
 
-3: Ejecutar el programa (python backend.py). La web tiene que estar en HTTP (no HTTPS) para que funcione la conexión
+3: Ejecutar el programa. La web tiene que estar en HTTP (no HTTPS) para que funcione la conexión
 
 
 '''
@@ -27,7 +27,7 @@ from revChatGPT.V1 import Chatbot
 import websockets,asyncio,openai,traceback,os
 from serpapi import GoogleSearch
 openai.api_key="PON TU CLAVE API DE OPENAI AQUÍ"
-async def mandaMensage(websocket, path):
+async def MandaMensaje(websocket, path):
     print("ALGUIEN SE HA CONECTADO")
     palabras = await websocket.recv()
     listapalabras = palabras.split("YYY")
@@ -97,6 +97,6 @@ async def mandaMensage(websocket, path):
     await websocket.close()
 async def main():
     print("init")
-    async with websockets.serve(mandaMensage, "localhost", 3333): #type: ignore
+    async with websockets.serve(MandaMensaje, "localhost", 3333): #type: ignore
         await asyncio.Future()
 asyncio.run(main())

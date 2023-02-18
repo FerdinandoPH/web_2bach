@@ -97,8 +97,7 @@ function PreparaEnvio(){
     if (todas){
         document.getElementById("formulario").style.display="none";
         document.getElementById("intro").style.visibility="visible";
-        document.getElementById("textoIntro").innerHTML="Mmm, muy interesante. ¿Estas listo para conocer tu futuro?";
-        Hablar();
+        document.getElementById("textoIntro").innerHTML="Mmm, muy interesante. ¿Estas listo para conocer tu futuro?<br/><p style=\"color: red;\">ADVERTENCIA: A PARTIR DEL 20/02/2023 VOY A APAGAR EL SERVIDOR. SI QUIERES LA HISTORIA, VISITA <a src=\"https://github.com/FerdinandoPH/web_2bach\">ESTA PÁGINA</a> PARA LAS INSTRUCCIONES NECESARIAS PARA EJECUTAR EL BACKEND DE FORMA LOCAL</p>";
         document.getElementById("botonIntro").onclick=function(){Generar(palabras)};
         document.getElementById("botonIntro").innerHTML="Si";
     }
@@ -135,7 +134,7 @@ function Generar(mensaje){
     document.getElementById("intro").style.visibility="hidden";
     console.log(mensaje);
     try{
-        let socket= new WebSocket("ws://93.189.88.242:3333");
+        let socket= new WebSocket("ws://93.189.88.242:3333"); // Cambiar a ws://localhost:3333 tras el 20/02/2023
         socket.onopen=function(event){
             socket.send(mensaje);
             document.body.style.backgroundImage="url('img/procesando.gif')";
