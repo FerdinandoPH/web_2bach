@@ -1,6 +1,6 @@
 '''
 INSTRUCCIONES PARA USAR EL SERVIDOR:
-A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el oráculo, es necesario ejecutar este programa localmente. Es necesario ejecutar estas instrucciones
+A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el oráculo, es necesario ejecutar este programa localmente. Hay que seguir estas instrucciones:
 
 1: Tener python (al menos 3.9) instalado y añadido al PATH
 2: Dependencias que hay que instalar (las no mencionadas ya vienen con python):

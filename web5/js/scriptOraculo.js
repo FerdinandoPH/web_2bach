@@ -97,7 +97,7 @@ function PreparaEnvio(){
     if (todas){
         document.getElementById("formulario").style.display="none";
         document.getElementById("intro").style.visibility="visible";
-        document.getElementById("textoIntro").innerHTML="Mmm, muy interesante. ¿Estas listo para conocer tu futuro?<br/><p style=\"color: red;\">ADVERTENCIA: A PARTIR DEL 20/02/2023 VOY A APAGAR EL SERVIDOR. SI QUIERES LA HISTORIA, VISITA <a src=\"https://github.com/FerdinandoPH/web_2bach\">ESTA PÁGINA</a> PARA LAS INSTRUCCIONES NECESARIAS PARA EJECUTAR EL BACKEND DE FORMA LOCAL</p>";
+        document.getElementById("textoIntro").innerHTML="Mmm, muy interesante. ¿Estas listo para conocer tu futuro?<br/><p style=\"color: red;\">ADVERTENCIA: A PARTIR DEL 20/02/2023 VOY A APAGAR EL SERVIDOR. SI QUIERES LA HISTORIA, VISITA <a style=\"color:blue;\" href=\"https://github.com/FerdinandoPH/web_2bach\">ESTA PÁGINA</a> PARA LAS INSTRUCCIONES NECESARIAS PARA EJECUTAR EL BACKEND DE FORMA LOCAL</p>";
         document.getElementById("botonIntro").onclick=function(){Generar(palabras)};
         document.getElementById("botonIntro").innerHTML="Si";
     }
