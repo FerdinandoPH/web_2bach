@@ -135,7 +135,7 @@ function Generar(mensaje){
     document.getElementById("intro").style.visibility="hidden";
     console.log(mensaje);
     try{
-        let socket= new WebSocket("ws://93.189.88.242:3333"); // Cambiar a ws://localhost:3333 tras el 20/02/2023
+        let socket= new WebSocket("ws://localhost:3333");
         socket.onopen=function(event){
             socket.send(mensaje);
             document.body.style.backgroundImage="url('img/procesando.gif')";
