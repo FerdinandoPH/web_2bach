@@ -84,12 +84,12 @@ function PreparaEnvio(){
         else{
             palabras+=document.getElementById("pregunta"+i).value;
             if (i<6){
-                palabras+="YYY";
+                palabras+="YYYTAMBIEN";
             }
         }
     }
     if(document.querySelector('input[name="genero"]:checked')!=null){
-        palabras+="YYY"+document.querySelector('input[name="genero"]:checked').value;
+        palabras+="YYYTAMBIEN"+document.querySelector('input[name="genero"]:checked').value;
     }
     else{
         todas=false;
@@ -118,7 +118,7 @@ function ErrorHandler(error){
     document.getElementById("intro").style.visibility="visible";
 }
 function ColocaPictografia(urls) {
-    var listaurls=urls.split("YYY");
+    var listaurls=urls.split("YYYTAMBIEN");
     var textoHistoria=document.getElementById("resultado").innerHTML;
     for (i=0;i<sustantivos.length;i++){
         patron=new RegExp(sustantivos[i],"i");
@@ -168,7 +168,7 @@ function Generar(mensaje){
                 document.getElementById("imagenhistoria").src=link;
             }
             else if(event.data[0]=="S"){
-                sustantivos=event.data.substring(1).split(", ");
+                sustantivos=event.data.substring(1).split(",");
                 console.log("Sustantivos: "+event.data.substring(1));
             }
             else if(event.data[0]=="U"){
