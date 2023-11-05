@@ -4,7 +4,8 @@ A partir del 20/02/2023, voy a apagar mi servidor, asi que para que funcione el 
 
 1: Tener python (al menos 3.9) instalado y añadido al PATH
 2: Dependencias que hay que instalar (las no mencionadas ya vienen con python):
-    a: websockets (pip install websockets) y asyncio (pip install asyncio): para la conexión a internet
+    a: websockets (pip install websockets) y asyncio (pip install asyncio)
+        para la conexión a internet
     b: openai (pip install openai)
         Se encarga de crear la historia y de contactar con DALL-E para generar la imagen del final. Es necesario crear una cuenta en https://openai.com/ para obtener la llave de la API en https://platform.openai.com/account/api-keys . 
         ...Una vez creada, ponla en el hueco marcado en el código (línea 118).
